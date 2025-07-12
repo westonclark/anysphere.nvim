@@ -67,8 +67,15 @@ M.get_colors = function(conf)
     ["@string.regexp"]         = syntax["SpecialChar"],                                  -- regular expressions
     ["@string.special.symbol"] = syntax["Identifier"],                                   -- special symbols in strings
     ["@string.special.url"]    = { fg = c.func },                                        -- URLs, links, emails
-    ["@tag.attribute"]         = syntax["Identifier"],                                   -- tag attributes, like in HTML
-    ["@tag.delimiter"]         = { fg = c.fg },                                          -- tag delimiters like `< >`
+    ["@tag"]                  = { fg = c.bracket },                                        -- html/jsx tags
+    ["@tag.delimiter"]        = { fg = c.bracket },                                        -- tag delimiters < >
+    ["@attribute"]            = { fg = c.builtin },                                        -- tag attributes (className, id, etc.)
+    ["@string"]               = { fg = c.string },                                         -- attribute values
+    ["@punctuation.bracket"]  = { fg = c.bracket },                                        -- braces/brackets
+    ["@punctuation.delimiter"] = { fg = c.bracket },                                       -- delimiters (e.g. =)
+    ["@variable"]             = { fg = c.parameter },                                      -- variables in JSX expressions
+    ["@parameter"]            = { fg = c.parameter },                                      -- parameters in JSX expressions
+    ["@property"]             = { fg = c.property },                                       -- properties (e.g. key=)
     ["@type"]                  = syntax["Type"],                                         -- types
     ["@type.builtin"]          = { fg = c.builtin, gui = conf.style.builtin_types },     -- built-in types
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations

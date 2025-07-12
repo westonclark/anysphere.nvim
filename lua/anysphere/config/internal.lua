@@ -249,7 +249,7 @@ local DEFAULT_SETTINGS = {
     ---@type string
     comment = "#6C6C6C",  -- Fixed: solid gray instead of alpha channel that doesn't work in Neovim
     ---@type string
-    builtin = "#82d2ce",  -- Updated to match semantic token colors
+    builtin = "#82d2ce",  -- Updated to match semantic token colors (GREEN for types)
     ---@type string
     func = "#efb080",  -- Updated to match function colors
     ---@type string
@@ -262,7 +262,7 @@ local DEFAULT_SETTINGS = {
     constant = "#82d2ce",  -- Updated to match constant colors
     ---@type string
     parameter = "#D8DEE9",  -- FIXED: Changed from yellow to white to match Cursor
-    bracket = "#87c3ff",  -- This matches ✓
+    bracket = "#87c3ff",  -- This matches ✓ (PURPLE for brackets)
     ---@type string
     visual = "#40404099",  -- Updated to match editor.selectionBackground
     ---@type string
@@ -272,7 +272,7 @@ local DEFAULT_SETTINGS = {
     ---@type string
     hint = "#88C0D0",  -- Updated to match hint colors
     ---@type string
-    operator = "#d6d6dd",  -- This matches ✓
+    operator = "#efb080",  -- FIXED: Changed from light gray to orange for := operator
     ---@type string
     keyword = "#83d6c5",  -- This matches ✓
     ---@type string

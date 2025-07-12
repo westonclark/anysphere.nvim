@@ -26,7 +26,7 @@ M.get_colors = function(conf)
     ["@lsp.type.parameter"]                  = treesitter["@variable.parameter"],    -- function parameters
     ["@lsp.type.property"]                   = treesitter["@variable.member"],       -- properties (changed to use white)
     ["@lsp.type.selfParameter"]              = syntax["Special"],                    -- self parameters
-    ["@lsp.type.type"]                       = { fg = "#83d6c5" },                   -- ADDED: general types should also be green
+    -- ["@lsp.type.type"]                       = { fg = "#83d6c5" },                   -- ADDED: general types should also be green
     ["@lsp.type.typeParameter"]              = syntax["Typedef"],                    -- type parameters
     ["@lsp.type.variable"]                   = treesitter["@variable"],              -- FIXED: variables should be white
     ["@lsp.typemod.function"]                = treesitter["@function.call"],         -- function calls

@@ -76,7 +76,7 @@ M.get_colors = function(conf)
     ["@punctuation.bracket"]  = { fg = c.bracket },                                        -- braces/brackets
     ["@punctuation.delimiter"] = { fg = c.bracket },                                       -- delimiters (e.g. =)
     ["@type"]                  = syntax["Type"],                                         -- types
-    ["@type.builtin"]          = { fg = c.builtin, gui = conf.style.builtin_types },     -- built-in types
+    ["@type.builtin"]          = { fg = c.keyword, gui = conf.style.builtin_types },     -- FIXED: built-in types should be green like keywords
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
     ["@variable"]              = { fg = c.fg, gui = conf.style.variables },              -- any variable without another highlight - FIXED: should be white

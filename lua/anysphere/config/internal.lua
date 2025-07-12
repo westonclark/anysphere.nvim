@@ -57,41 +57,41 @@ local DEFAULT_SETTINGS = {
   ---@param highlights table<string, vim.api.keyset.highlight>
   ---@param colors AnysphereColorscheme.InternalConfig.colors
   on_highlights = function(hl, c)
-    -- Core UI - Updated to match JSON values
-    hl.Normal = { fg = c.fg, bg = c.bg }
-    hl.NormalNC = { fg = c.fg, bg = c.bg }
-    hl.LineNr = { fg = "#505050", bg = c.bg }  -- Matches editorLineNumber.foreground
-    hl.CursorLineNr = { fg = "#FFFFFF", bg = c.bg }  -- Matches editorLineNumber.activeForeground
-    hl.SignColumn = { bg = c.bg }
-    hl.VertSplit = { fg = "#FFFFFF0D", bg = c.bg }  -- Updated to match editorGroup.border
+    -- Core UI - Updated to match JSON values and respect transparency
+    hl.Normal = { fg = c.fg, bg = M.current.transparent and "none" or c.bg }
+    hl.NormalNC = { fg = c.fg, bg = M.current.transparent and "none" or c.bg }
+    hl.LineNr = { fg = "#505050", bg = M.current.transparent and "none" or c.bg }  -- Matches editorLineNumber.foreground
+    hl.CursorLineNr = { fg = "#FFFFFF", bg = M.current.transparent and "none" or c.bg }  -- Matches editorLineNumber.activeForeground
+    hl.SignColumn = { bg = M.current.transparent and "none" or c.bg }
+    hl.VertSplit = { fg = "#FFFFFF0D", bg = M.current.transparent and "none" or c.bg }  -- Updated to match editorGroup.border
     hl.StatusLine = { fg = "#cccccc82", bg = "#141414" }  -- Updated to match statusBar colors
     hl.StatusLineNC = { fg = "#cccccc60", bg = "#141414" }  -- Updated to match inactive statusBar
-    hl.WinSeparator = { fg = "#FFFFFF0D", bg = c.bg }  -- Updated to match panel.border
-    hl.CursorLine = { bg = c.line }  -- Now uses updated line color
-    hl.CursorColumn = { bg = c.line }  -- Now uses updated line color
+    hl.WinSeparator = { fg = "#FFFFFF0D", bg = M.current.transparent and "none" or c.bg }  -- Updated to match panel.border
+    hl.CursorLine = { bg = M.current.transparent and "none" or c.line }  -- Now uses updated line color
+    hl.CursorColumn = { bg = M.current.transparent and "none" or c.line }  -- Now uses updated line color
     hl.Visual = { bg = c.visual }  -- Now uses updated visual color
     hl.Search = { bg = c.search, fg = c.fg }  -- Now uses updated search color
     hl.IncSearch = { bg = "#88C0D044", fg = c.fg }  -- Updated to match editor.findMatchHighlightBackground
-    hl.MatchParen = { fg = "#FFFFFF", bg = c.line, underline = true }  -- Updated
-    hl.Pmenu = { fg = c.fg, bg = "#141414" }  -- Updated to match editorSuggestWidget.background
+    hl.MatchParen = { fg = "#FFFFFF", bg = M.current.transparent and "none" or c.line, underline = true }  -- Updated
+    hl.Pmenu = { fg = c.fg, bg = M.current.transparent and "none" or "#141414" }  -- Updated to match editorSuggestWidget.background
     hl.PmenuSel = { fg = c.fg, bg = "#404040" }  -- Updated to match editorSuggestWidget.selectedBackground
     hl.PmenuSbar = { bg = "#2A2A2A" }  -- Updated
     hl.PmenuThumb = { bg = "#505050" }  -- Updated
-    hl.Folded = { fg = "#CCCCCC99", bg = c.bg }  -- Updated
-    hl.FoldColumn = { fg = "#505050", bg = c.bg }
-    hl.ColorColumn = { bg = c.line }  -- Now uses updated line color
+    hl.Folded = { fg = "#CCCCCC99", bg = M.current.transparent and "none" or c.bg }  -- Updated
+    hl.FoldColumn = { fg = "#505050", bg = M.current.transparent and "none" or c.bg }
+    hl.ColorColumn = { bg = M.current.transparent and "none" or c.line }  -- Now uses updated line color
     hl.TabLine = { fg = "#505050", bg = "#141414" }  -- Updated to match tab colors
-    hl.TabLineSel = { fg = "#FFFFFF", bg = c.bg }  -- Updated to match tab.activeForeground
+    hl.TabLineSel = { fg = "#FFFFFF", bg = M.current.transparent and "none" or c.bg }  -- Updated to match tab.activeForeground
     hl.TabLineFill = { bg = "#141414" }  -- Updated
-    hl.WinBar = { fg = c.fg, bg = c.bg }
-    hl.WinBarNC = { fg = "#505050", bg = c.bg }
+    hl.WinBar = { fg = c.fg, bg = M.current.transparent and "none" or c.bg }
+    hl.WinBarNC = { fg = "#505050", bg = M.current.transparent and "none" or c.bg }
     hl.Cursor = { fg = c.bg, bg = "#FFFFFF" }  -- Updated to match editorCursor.foreground
     hl.CursorIM = { fg = c.bg, bg = "#FFFFFF" }
     hl.TermCursor = { fg = c.bg, bg = "#FFFFFF" }
     hl.TermCursorNC = { fg = c.bg, bg = "#505050" }
     hl.NonText = { fg = "#505050" }
     hl.SpecialKey = { fg = "#505050" }
-    hl.Conceal = { fg = "#505050", bg = c.bg }
+    hl.Conceal = { fg = "#505050", bg = M.current.transparent and "none" or c.bg }
     hl.Whitespace = { fg = "#505050B3" }  -- Updated to match editorWhitespace.foreground
     hl.EndOfBuffer = { fg = c.line }  -- Updated
     hl.DiagnosticUnnecessary = { fg = "#505050" }

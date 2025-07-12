@@ -5,13 +5,14 @@ local M = {}
 ---@param conf AnysphereColorscheme.InternalConfig
 ---@return table
 M.get_colors = function(conf)
+  local c = conf.colors
   local syntax = syntax_group.get_colors(conf)
   local treesitter = ts_group.get_colors(conf)
 
   -- stylua: ignore
   local hl = {
     ["@lsp.type.builtinConstant"]            = treesitter["@constant.builtin"],      -- built-in constants
-    ["@lsp.type.builtinType"]                = treesitter["@type.builtin"],          -- FIXED: now references the updated treesitter highlight
+    ["@lsp.type.builtinType"]                = { fg = c.keyword },                   -- FIXED: directly use keyword green color
     ["@lsp.type.class"]                      = syntax["Structure"],                  -- classes
     ["@lsp.type.comment"]                    = syntax["Comment"],                    -- comments
     ["@lsp.type.enum"]                       = syntax["Structure"],                  -- enums

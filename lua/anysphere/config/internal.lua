@@ -123,7 +123,8 @@ local DEFAULT_SETTINGS = {
     ---@type string
     constant = "#83d6c5",
     ---@type string
-    parameter = "#aa9bf5",
+    parameter = "#d6d6dd",
+    bracket = "#87c3ff",
     ---@type string
     visual = "#2a282a",
     ---@type string

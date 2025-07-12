@@ -13,12 +13,12 @@ M.get_colors = function(conf)
     Conditional     = { fg = c.keyword, gui = conf.style.conditionals },       -- conditionals
     Constant        = { fg = c.constant },                                     -- (preferred) any constant
     Define          = { fg = c.comment },                                      -- preprocessor '#define'
-    Delimiter       = { fg = c.fg },                                           -- delimiter characters
+    Delimiter       = { fg = c.bracket },                                           -- delimiter characters
     Error           = { fg = c.error, gui = conf.style.error },                -- (preferred) any erroneous construct
     Exception       = { fg = c.keyword, gui = conf.style.keywords_exception }, -- 'try', 'catch', 'throw'
     Float           = { fg = c.number, gui = conf.style.float },               -- float constants
     Function        = { fg = c.func, gui = conf.style.functions },             -- functions
-    Identifier      = { fg = c.constant, gui = conf.style.variables },         -- (preferred) any variable
+    Identifier      = { fg = c.parameter, gui = conf.style.variables },         -- (preferred) any variable
     Include         = { fg = c.keyword },                                      -- preprocessor '#include'
     Keyword         = { fg = c.keyword, gui = conf.style.keywords },           -- any other keyword
     Label           = { fg = c.keyword, gui = conf.style.keywords_label },     -- 'case', 'default', etc

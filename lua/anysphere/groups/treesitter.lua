@@ -58,7 +58,7 @@ M.get_colors = function(conf)
     ["@number.float"]          = syntax["Float"],                                        -- floats
     ["@operator"]              = syntax["Operator"],                                     -- operators like `+`
     ["@property"]              = { fg = c.property },                                    -- properties (similar to TSField)
-    ["@punctuation.bracket"]   = { fg = c.fg },                                          -- brackets and parentheses
+    ["@punctuation.bracket"]   = { fg = c.bracket },                                          -- brackets and parentheses
     ["@punctuation.delimiter"] = { fg = c.fg },                                          -- delimiters, like `; . , `
     ["@punctuation.special"]   = syntax["SpecialChar"],                                  -- special punctuation (e.g., `{}` in string interpolation)
     ["@string"]                = syntax["String"],                                       -- strings

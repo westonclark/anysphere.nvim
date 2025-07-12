@@ -12,7 +12,7 @@ M.get_colors = function(conf)
   -- stylua: ignore
   local hl = {
     ["@lsp.type.builtinConstant"]            = treesitter["@constant.builtin"],      -- built-in constants
-    ["@lsp.type.builtinType"]                = { fg = c.keyword },                   -- FIXED: directly use keyword green color
+    ["@lsp.type.builtinType"]                = { fg = "#83d6c5" },                   -- HARDCODED: green color for built-in types
     ["@lsp.type.class"]                      = syntax["Structure"],                  -- classes
     ["@lsp.type.comment"]                    = syntax["Comment"],                    -- comments
     ["@lsp.type.enum"]                       = syntax["Structure"],                  -- enums
@@ -26,12 +26,14 @@ M.get_colors = function(conf)
     ["@lsp.type.parameter"]                  = treesitter["@variable.parameter"],    -- function parameters
     ["@lsp.type.property"]                   = treesitter["@variable.member"],       -- properties (changed to use white)
     ["@lsp.type.selfParameter"]              = syntax["Special"],                    -- self parameters
+    ["@lsp.type.type"]                       = { fg = "#83d6c5" },                   -- ADDED: general types should also be green
     ["@lsp.type.typeParameter"]              = syntax["Typedef"],                    -- type parameters
     ["@lsp.type.variable"]                   = treesitter["@variable"],              -- FIXED: variables should be white
     ["@lsp.typemod.function"]                = treesitter["@function.call"],         -- function calls
     ["@lsp.typemod.function.builtin"]        = treesitter["@function.builtin"],      -- built-in functions
     ["@lsp.typemod.function.defaultLibrary"] = treesitter["@function.builtin"],      -- default library functions
     ["@lsp.typemod.function.definition"]     = treesitter["@function"],              -- function definitions
+    ["@lsp.typemod.type.defaultLibrary"]     = { fg = "#83d6c5" },                   -- ADDED: default library types should be green
     ["@lsp.typemod.variable.defaultLibrary"] = treesitter["@variable.builtin"],      -- default library variables (now white)
     ["@lsp.typemod.variable.definition"]     = treesitter["@variable"],              -- FIXED: variable definitions should be white
   }

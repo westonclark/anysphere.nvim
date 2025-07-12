@@ -194,6 +194,11 @@ local DEFAULT_SETTINGS = {
     hl.markdownH4 = { fg = c.fg, bold = true }
     hl.markdownH5 = { fg = c.fg, bold = true }
     hl.markdownH6 = { fg = c.fg, bold = true }
+
+    -- Additional LSP type highlights for Go built-in types
+    hl['@lsp.type.builtinType'] = { fg = "#83d6c5" }  -- Built-in types like int, bool
+    hl['@lsp.type.type'] = { fg = "#83d6c5" }         -- General types
+    hl['@lsp.typemod.type.defaultLibrary'] = { fg = "#83d6c5" }  -- Default library types
   end,
 
   ---@class AnysphereColorscheme.InternalConfig.plugins

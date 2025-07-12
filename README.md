@@ -128,17 +128,3 @@ require("anysphere").setup({
 - [Mini](https://github.com/echasnovski/mini.nvim)
 - [Vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
 
-## Extras
-
-Extra color configs for [Ghostty](https://ghostty.org/),
-[Alacritty](https://github.com/alacritty/alacritty),
-[Kitty](https://sw.kovidgoyal.net/kitty) and [foot](https://codeberg.org/dnkl/foot) can be
-found in [extras](extras/). To use them, refer to their respective
-documentation.
-
-## Contributing
-
-PR's are welcome and encouraged.
-
-If you would like to propose support for a specific plugin, you can make a PR with your modifications to the `lua/anysphere/groups` directory
-# anysphere.nvim

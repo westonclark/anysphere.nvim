@@ -75,17 +75,14 @@ M.get_colors = function(conf)
     ["@string"]               = { fg = c.string },                                         -- attribute values
     ["@punctuation.bracket"]  = { fg = c.bracket },                                        -- braces/brackets
     ["@punctuation.delimiter"] = { fg = c.bracket },                                       -- delimiters (e.g. =)
-    ["@variable"]             = { fg = c.parameter },                                      -- variables in JSX expressions
-    ["@parameter"]            = { fg = c.parameter },                                      -- parameters in JSX expressions
-    ["@property"]             = { fg = c.property },                                       -- properties (e.g. key=)
     ["@type"]                  = syntax["Type"],                                         -- types
     ["@type.builtin"]          = { fg = c.builtin, gui = conf.style.builtin_types },     -- built-in types
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
-    ["@variable"]              = { fg = c.fg, gui = conf.style.variables },              -- any variable without another highlight
+    ["@variable"]              = { fg = c.fg, gui = conf.style.variables },              -- any variable without another highlight - FIXED: should be white
     ["@variable.builtin"]      = { fg = c.builtin, gui = conf.style.builtin_variables }, -- built-in variables like 'self' or 'this'
-    ["@variable.member"]       = { fg = c.builtin },                                     -- fields
-    ["@variable.parameter"]    = { fg = c.parameter },                                   -- function parameters
+    ["@variable.member"]       = { fg = c.fg },                                          -- fields - FIXED: should be white like other variables
+    ["@variable.parameter"]    = { fg = c.fg },                                          -- function parameters - FIXED: should be white like in Cursor
   }
 
   return hl

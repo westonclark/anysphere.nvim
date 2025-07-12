@@ -261,7 +261,7 @@ local DEFAULT_SETTINGS = {
     ---@type string
     constant = "#82d2ce",  -- Updated to match constant colors
     ---@type string
-    parameter = "#f8c762",  -- Updated to match parameter colors
+    parameter = "#D8DEE9",  -- FIXED: Changed from yellow to white to match Cursor
     bracket = "#87c3ff",  -- This matches ✓
     ---@type string
     visual = "#40404099",  -- Updated to match editor.selectionBackground

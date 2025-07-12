@@ -57,46 +57,48 @@ local DEFAULT_SETTINGS = {
   ---@param highlights table<string, vim.api.keyset.highlight>
   ---@param colors AnysphereColorscheme.InternalConfig.colors
   on_highlights = function(hl, c)
-    -- Core UI
+    -- Core UI - Updated to match JSON values
     hl.Normal = { fg = c.fg, bg = c.bg }
     hl.NormalNC = { fg = c.fg, bg = c.bg }
-    hl.LineNr = { fg = "#505050", bg = c.bg }
-    hl.CursorLineNr = { fg = "#FFFFFF", bg = c.bg }
+    hl.LineNr = { fg = "#505050", bg = c.bg }  -- Matches editorLineNumber.foreground
+    hl.CursorLineNr = { fg = "#FFFFFF", bg = c.bg }  -- Matches editorLineNumber.activeForeground
     hl.SignColumn = { bg = c.bg }
-    hl.VertSplit = { fg = "#292929", bg = c.bg }
-    hl.StatusLine = { fg = c.fg, bg = "#141414" }
-    hl.StatusLineNC = { fg = "#505050", bg = "#141414" }
-    hl.WinSeparator = { fg = "#292929", bg = c.bg }
-    hl.CursorLine = { bg = "#292929" }
-    hl.CursorColumn = { bg = "#292929" }
-    hl.Visual = { bg = "#40404099" }
-    hl.Search = { bg = "#88C0D066", fg = c.fg }
-    hl.IncSearch = { bg = "#88C0D044", fg = c.fg }
-    hl.MatchParen = { fg = "#FFFFFF", bg = "#292929", underline = true }
-    hl.Pmenu = { fg = c.fg, bg = "#141414" }
-    hl.PmenuSel = { fg = c.fg, bg = "#404040" }
-    hl.PmenuSbar = { bg = "#292929" }
-    hl.PmenuThumb = { bg = "#505050" }
-    hl.Folded = { fg = "#CCCCCC99", bg = "#1a1a1a" }
+    hl.VertSplit = { fg = "#FFFFFF0D", bg = c.bg }  -- Updated to match editorGroup.border
+    hl.StatusLine = { fg = "#cccccc82", bg = "#141414" }  -- Updated to match statusBar colors
+    hl.StatusLineNC = { fg = "#cccccc60", bg = "#141414" }  -- Updated to match inactive statusBar
+    hl.WinSeparator = { fg = "#FFFFFF0D", bg = c.bg }  -- Updated to match panel.border
+    hl.CursorLine = { bg = c.line }  -- Now uses updated line color
+    hl.CursorColumn = { bg = c.line }  -- Now uses updated line color
+    hl.Visual = { bg = c.visual }  -- Now uses updated visual color
+    hl.Search = { bg = c.search, fg = c.fg }  -- Now uses updated search color
+    hl.IncSearch = { bg = "#88C0D044", fg = c.fg }  -- Updated to match editor.findMatchHighlightBackground
+    hl.MatchParen = { fg = "#FFFFFF", bg = c.line, underline = true }  -- Updated
+    hl.Pmenu = { fg = c.fg, bg = "#141414" }  -- Updated to match editorSuggestWidget.background
+    hl.PmenuSel = { fg = c.fg, bg = "#404040" }  -- Updated to match editorSuggestWidget.selectedBackground
+    hl.PmenuSbar = { bg = "#2A2A2A" }  -- Updated
+    hl.PmenuThumb = { bg = "#505050" }  -- Updated
+    hl.Folded = { fg = "#CCCCCC99", bg = c.bg }  -- Updated
     hl.FoldColumn = { fg = "#505050", bg = c.bg }
-    hl.ColorColumn = { bg = "#292929" }
-    hl.TabLine = { fg = "#505050", bg = "#141414" }
-    hl.TabLineSel = { fg = "#FFFFFF", bg = "#1a1a1a" }
-    hl.TabLineFill = { bg = "#141414" }
+    hl.ColorColumn = { bg = c.line }  -- Now uses updated line color
+    hl.TabLine = { fg = "#505050", bg = "#141414" }  -- Updated to match tab colors
+    hl.TabLineSel = { fg = "#FFFFFF", bg = c.bg }  -- Updated to match tab.activeForeground
+    hl.TabLineFill = { bg = "#141414" }  -- Updated
     hl.WinBar = { fg = c.fg, bg = c.bg }
     hl.WinBarNC = { fg = "#505050", bg = c.bg }
-    hl.Cursor = { fg = c.bg, bg = "#FFFFFF" }
+    hl.Cursor = { fg = c.bg, bg = "#FFFFFF" }  -- Updated to match editorCursor.foreground
     hl.CursorIM = { fg = c.bg, bg = "#FFFFFF" }
     hl.TermCursor = { fg = c.bg, bg = "#FFFFFF" }
     hl.TermCursorNC = { fg = c.bg, bg = "#505050" }
     hl.NonText = { fg = "#505050" }
     hl.SpecialKey = { fg = "#505050" }
     hl.Conceal = { fg = "#505050", bg = c.bg }
-    hl.Whitespace = { fg = "#404040B3" }
-    hl.EndOfBuffer = { fg = "#292929" }
+    hl.Whitespace = { fg = "#505050B3" }  -- Updated to match editorWhitespace.foreground
+    hl.EndOfBuffer = { fg = c.line }  -- Updated
     hl.DiagnosticUnnecessary = { fg = "#505050" }
-    -- Comments
-    hl.Comment = { fg = "#b0b0b0", italic = true }
+
+    -- Comments - Updated to match JSON
+    hl.Comment = { fg = c.comment, italic = true }
+
     -- Strings
     hl.String = { fg = c.string }
     -- Functions
@@ -237,50 +239,50 @@ local DEFAULT_SETTINGS = {
   ---@class AnysphereColorscheme.InternalConfig.colors
   colors = {
     ---@type string
-    bg = "#181818",
+    bg = "#1a1a1a",  -- Changed from "#181818" to match editor.background
     ---@type string
-    fg = "#d6d6dd",
+    fg = "#D8DEE9",  -- Changed from "#d6d6dd" to match editor.foreground
     ---@type string
-    floatBorder = "#383838",
+    floatBorder = "#2A2A2A",  -- Updated to match dropdown.border
     ---@type string
-    line = "#212121",
+    line = "#292929",  -- Changed from "#212121" to match editor.lineHighlightBackground
     ---@type string
-    comment = "#474747",
+    comment = "#FFFFFF5C",  -- Updated to match comment colors in JSON
     ---@type string
-    builtin = "#83d6c5",
+    builtin = "#82d2ce",  -- Updated to match semantic token colors
     ---@type string
-    func = "#ebc88d",
+    func = "#efb080",  -- Updated to match function colors
     ---@type string
-    string = "#e394dc",
+    string = "#e394dc",  -- This matches ✓
     ---@type string
-    number = "#d6d6dd",
+    number = "#ebc88d",  -- Updated to match number colors
     ---@type string
-    property = "#d6d6dd",
+    property = "#AA9BF5",  -- Updated to match property colors from semanticTokenColors
     ---@type string
-    constant = "#83d6c5",
+    constant = "#82d2ce",  -- Updated to match constant colors
     ---@type string
-    parameter = "#d6d6dd",
-    bracket = "#87c3ff",
+    parameter = "#f8c762",  -- Updated to match parameter colors
+    bracket = "#87c3ff",  -- This matches ✓
     ---@type string
-    visual = "#2a282a",
+    visual = "#40404099",  -- Updated to match editor.selectionBackground
     ---@type string
-    error = "#f14c4c",
+    error = "#BF616A",  -- Updated to match error colors
     ---@type string
-    warning = "#ea7620",
+    warning = "#EBCB8B",  -- Updated to match warning colors
     ---@type string
-    hint = "#838383",
+    hint = "#88C0D0",  -- Updated to match hint colors
     ---@type string
-    operator = "#d6d6dd",
+    operator = "#d6d6dd",  -- This matches ✓
     ---@type string
-    keyword = "#83d6c5",
+    keyword = "#83d6c5",  -- This matches ✓
     ---@type string
-    type = "#87c3ff",
+    type = "#87c3ff",  -- This matches ✓
     ---@type string
-    search = "#163764",
+    search = "#88C0D066",  -- Updated to match editor.findMatchBackground
     ---@type string
-    plus = "#15ac91",
+    plus = "#A3BE8C",  -- Updated to match git added colors
     ---@type string
-    delta = "#e5b95c",
+    delta = "#EBCB8B",  -- Updated to match git modified colors
   },
 }
 

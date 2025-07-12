@@ -11,7 +11,7 @@ M.get_colors = function(conf)
   -- stylua: ignore
   local hl = {
     ["@lsp.type.builtinConstant"]            = treesitter["@constant.builtin"],      -- built-in constants
-    ["@lsp.type.builtinType"]                = { fg = conf.colors.keyword },                   -- FIXED: built-in types should be green like keywords
+    ["@lsp.type.builtinType"]                = treesitter["@type.builtin"],          -- FIXED: now references the updated treesitter highlight
     ["@lsp.type.class"]                      = syntax["Structure"],                  -- classes
     ["@lsp.type.comment"]                    = syntax["Comment"],                    -- comments
     ["@lsp.type.enum"]                       = syntax["Structure"],                  -- enums

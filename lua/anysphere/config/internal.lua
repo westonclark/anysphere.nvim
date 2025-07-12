@@ -247,7 +247,7 @@ local DEFAULT_SETTINGS = {
     ---@type string
     line = "#292929",  -- Changed from "#212121" to match editor.lineHighlightBackground
     ---@type string
-    comment = "#FFFFFF5C",  -- Updated to match comment colors in JSON
+    comment = "#6C6C6C",  -- Fixed: solid gray instead of alpha channel that doesn't work in Neovim
     ---@type string
     builtin = "#82d2ce",  -- Updated to match semantic token colors
     ---@type string
@@ -257,7 +257,7 @@ local DEFAULT_SETTINGS = {
     ---@type string
     number = "#ebc88d",  -- Updated to match number colors
     ---@type string
-    property = "#AA9BF5",  -- Updated to match property colors from semanticTokenColors
+    property = "#D8DEE9",  -- Changed from purple to match regular variables (white/gray)
     ---@type string
     constant = "#82d2ce",  -- Updated to match constant colors
     ---@type string

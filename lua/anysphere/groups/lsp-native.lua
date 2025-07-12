@@ -23,16 +23,16 @@ M.get_colors = function(conf)
     ["@lsp.type.method"]                     = treesitter["@function.method"],       -- methods
     ["@lsp.type.namespace"]                  = treesitter["@module"],                -- namespaces
     ["@lsp.type.parameter"]                  = treesitter["@variable.parameter"],    -- function parameters
-    ["@lsp.type.property"]                   = treesitter["@type"],                  -- properties
+    ["@lsp.type.property"]                   = treesitter["@variable.member"],       -- properties (changed to use white)
     ["@lsp.type.selfParameter"]              = syntax["Special"],                    -- self parameters
     ["@lsp.type.typeParameter"]              = syntax["Typedef"],                    -- type parameters
-    ["@lsp.type.variable"]                   = treesitter["@constant"],              -- variables
+    ["@lsp.type.variable"]                   = treesitter["@variable"],              -- FIXED: variables should be white
     ["@lsp.typemod.function"]                = treesitter["@function.call"],         -- function calls
     ["@lsp.typemod.function.builtin"]        = treesitter["@function.builtin"],      -- built-in functions
     ["@lsp.typemod.function.defaultLibrary"] = treesitter["@function.builtin"],      -- default library functions
     ["@lsp.typemod.function.definition"]     = treesitter["@function"],              -- function definitions
-    ["@lsp.typemod.variable.defaultLibrary"] = treesitter["@constant.builtin"],      -- default library variables
-    ["@lsp.typemod.variable.definition"]     = treesitter["@property"],              -- variable definitions
+    ["@lsp.typemod.variable.defaultLibrary"] = treesitter["@variable.builtin"],      -- default library variables (now white)
+    ["@lsp.typemod.variable.definition"]     = treesitter["@variable"],              -- FIXED: variable definitions should be white
   }
 
   return hl

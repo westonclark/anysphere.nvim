@@ -80,7 +80,7 @@ M.get_colors = function(conf)
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
     ["@variable"]              = { fg = c.fg, gui = conf.style.variables },              -- any variable without another highlight - FIXED: should be white
-    ["@variable.builtin"]      = { fg = c.builtin, gui = conf.style.builtin_variables }, -- built-in variables like 'self' or 'this'
+    ["@variable.builtin"]      = { fg = c.fg, gui = conf.style.builtin_variables },      -- FIXED: changed from c.builtin to c.fg (white)
     ["@variable.member"]       = { fg = c.fg },                                          -- fields - FIXED: should be white like other variables
     ["@variable.parameter"]    = { fg = c.fg },                                          -- function parameters - FIXED: should be white like in Cursor
   }

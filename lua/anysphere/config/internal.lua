@@ -249,7 +249,7 @@ local DEFAULT_SETTINGS = {
     ---@type string
     comment = "#6C6C6C",  -- Fixed: solid gray instead of alpha channel that doesn't work in Neovim
     ---@type string
-    builtin = "#82d2ce",  -- Updated to match semantic token colors (GREEN for types)
+    builtin = "#83d6c5",  -- FIXED: Changed to match keyword color (same green as "for", "if")
     ---@type string
     func = "#efb080",  -- Updated to match function colors
     ---@type string
@@ -274,7 +274,7 @@ local DEFAULT_SETTINGS = {
     ---@type string
     operator = "#efb080",  -- FIXED: Changed from light gray to orange for := operator
     ---@type string
-    keyword = "#83d6c5",  -- This matches ✓
+    keyword = "#83d6c5",  -- This matches ✓ (GREEN for keywords like "for", "if")
     ---@type string
     type = "#87c3ff",  -- This matches ✓
     ---@type string

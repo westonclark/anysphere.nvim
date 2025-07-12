@@ -40,8 +40,8 @@ M.get_colors = function(conf)
     Todo            = { fg = c.func, gui = conf.style.comments },              -- (preferred) 'TODO' keywords in comments
     Type            = { fg = c.type },                                         -- (preferred) 'int', 'long', 'char' etc
     Typedef         = { fg = c.constant },                                     -- 'typedef'
-    htmlTag         = { fg = c.bracket },
-    htmlTagName     = { fg = c.bracket },
+    htmlTag         = { fg = c.string },
+    htmlTagName     = { fg = c.string },
     htmlArg         = { fg = c.builtin },
     htmlString      = { fg = c.string },
   }

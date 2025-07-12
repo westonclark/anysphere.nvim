@@ -67,8 +67,10 @@ M.get_colors = function(conf)
     ["@string.regexp"]         = syntax["SpecialChar"],                                  -- regular expressions
     ["@string.special.symbol"] = syntax["Identifier"],                                   -- special symbols in strings
     ["@string.special.url"]    = { fg = c.func },                                        -- URLs, links, emails
-    ["@tag"]                  = { fg = c.bracket },                                        -- html/jsx tags
-    ["@tag.delimiter"]        = { fg = c.bracket },                                        -- tag delimiters < >
+    ["@tag"]                  = { fg = c.string },                                        -- html/jsx tags as yellow
+    ["@tag.delimiter"]        = { fg = c.string },                                        -- tag delimiters < > as yellow
+    ["@text"]                 = { fg = c.string },                                        -- text content as yellow
+    ["@text.literal"]         = { fg = c.string },                                        -- literal text as yellow
     ["@attribute"]            = { fg = c.builtin },                                        -- tag attributes (className, id, etc.)
     ["@string"]               = { fg = c.string },                                         -- attribute values
     ["@punctuation.bracket"]  = { fg = c.bracket },                                        -- braces/brackets

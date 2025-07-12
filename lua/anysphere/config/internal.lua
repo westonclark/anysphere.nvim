@@ -56,7 +56,143 @@ local DEFAULT_SETTINGS = {
 
   ---@param highlights table<string, vim.api.keyset.highlight>
   ---@param colors AnysphereColorscheme.InternalConfig.colors
-  on_highlights = function(highlights, colors) end,
+  on_highlights = function(hl, c)
+    -- Core UI
+    hl.Normal = { fg = c.fg, bg = c.bg }
+    hl.NormalNC = { fg = c.fg, bg = c.bg }
+    hl.LineNr = { fg = "#505050", bg = c.bg }
+    hl.CursorLineNr = { fg = "#FFFFFF", bg = c.bg }
+    hl.SignColumn = { bg = c.bg }
+    hl.VertSplit = { fg = "#292929", bg = c.bg }
+    hl.StatusLine = { fg = c.fg, bg = "#141414" }
+    hl.StatusLineNC = { fg = "#505050", bg = "#141414" }
+    hl.WinSeparator = { fg = "#292929", bg = c.bg }
+    hl.CursorLine = { bg = "#292929" }
+    hl.CursorColumn = { bg = "#292929" }
+    hl.Visual = { bg = "#40404099" }
+    hl.Search = { bg = "#88C0D066", fg = c.fg }
+    hl.IncSearch = { bg = "#88C0D044", fg = c.fg }
+    hl.MatchParen = { fg = "#FFFFFF", bg = "#292929", underline = true }
+    hl.Pmenu = { fg = c.fg, bg = "#141414" }
+    hl.PmenuSel = { fg = c.fg, bg = "#404040" }
+    hl.PmenuSbar = { bg = "#292929" }
+    hl.PmenuThumb = { bg = "#505050" }
+    hl.Folded = { fg = "#CCCCCC99", bg = "#1a1a1a" }
+    hl.FoldColumn = { fg = "#505050", bg = c.bg }
+    hl.ColorColumn = { bg = "#292929" }
+    hl.TabLine = { fg = "#505050", bg = "#141414" }
+    hl.TabLineSel = { fg = "#FFFFFF", bg = "#1a1a1a" }
+    hl.TabLineFill = { bg = "#141414" }
+    hl.WinBar = { fg = c.fg, bg = c.bg }
+    hl.WinBarNC = { fg = "#505050", bg = c.bg }
+    hl.Cursor = { fg = c.bg, bg = "#FFFFFF" }
+    hl.CursorIM = { fg = c.bg, bg = "#FFFFFF" }
+    hl.TermCursor = { fg = c.bg, bg = "#FFFFFF" }
+    hl.TermCursorNC = { fg = c.bg, bg = "#505050" }
+    hl.NonText = { fg = "#505050" }
+    hl.SpecialKey = { fg = "#505050" }
+    hl.Conceal = { fg = "#505050", bg = c.bg }
+    hl.Whitespace = { fg = "#404040B3" }
+    hl.EndOfBuffer = { fg = "#292929" }
+    hl.DiagnosticUnnecessary = { fg = "#505050" }
+    -- Comments
+    hl.Comment = { fg = "#b0b0b0", italic = true }
+    -- Strings
+    hl.String = { fg = c.string }
+    -- Functions
+    hl.Function = { fg = c.func }
+    -- Types/Classes
+    hl.Type = { fg = c.type }
+    -- Properties
+    hl.Property = { fg = c.property }
+    -- Numbers/Constants
+    hl.Number = { fg = "#ebc88d" }
+    hl.Constant = { fg = "#efb080" }
+    -- Operators
+    hl.Operator = { fg = "#d6d6dd" }
+    -- Bold/Italic
+    hl.Bold = { fg = "#f8c762", bold = true }
+    hl.Italic = { fg = "#83d6c5", italic = true }
+    -- Diagnostics
+    hl.DiagnosticError = { fg = "#BF616A" }
+    hl.DiagnosticWarn = { fg = "#EBCB8B" }
+    hl.DiagnosticInfo = { fg = c.fg }
+    hl.DiagnosticHint = { fg = "#838383" }
+    hl.DiagnosticUnderlineError = { undercurl = true, sp = "#BF616A" }
+    hl.DiagnosticUnderlineWarn = { undercurl = true, sp = "#EBCB8B" }
+    hl.DiagnosticUnderlineInfo = { undercurl = true, sp = c.fg }
+    hl.DiagnosticUnderlineHint = { undercurl = true, sp = "#838383" }
+    -- Diff
+    hl.DiffAdd = { bg = "#A3BE8C22" }
+    hl.DiffChange = { bg = "#EBCB8B99" }
+    hl.DiffDelete = { bg = "#BF616A22" }
+    hl.DiffText = { bg = "#EBCB8B44" }
+    -- Gutter
+    hl.GitSignsAdd = { fg = "#A3BE8C" }
+    hl.GitSignsChange = { fg = "#EBCB8B" }
+    hl.GitSignsDelete = { fg = "#BF616A" }
+    -- Inlay Hints
+    hl.LspInlayHint = { fg = "#505050", bg = "#00000000" }
+    -- Links
+    hl.Underlined = { fg = "#81A1C1", underline = true }
+    hl['@markup.link'] = { fg = "#81A1C1", underline = true }
+    -- Misc
+    hl.Title = { fg = c.fg, bold = true }
+    hl.Todo = { fg = "#f8c762", bold = true }
+    hl.Special = { fg = c.builtin }
+    hl.Error = { fg = "#BF616A", bold = true }
+    hl.WarningMsg = { fg = "#EBCB8B", bold = true }
+    hl.MoreMsg = { fg = c.fg }
+    hl.Question = { fg = c.fg }
+    hl.Directory = { fg = "#81A1C1" }
+    hl.SpellBad = { undercurl = true, sp = "#BF616A" }
+    hl.SpellCap = { undercurl = true, sp = "#EBCB8B" }
+    hl.SpellRare = { undercurl = true, sp = "#81A1C1" }
+    hl.SpellLocal = { undercurl = true, sp = "#A3BE8C" }
+    -- Indent Guides
+    hl.IndentBlanklineChar = { fg = "#404040B3" }
+    hl.IndentBlanklineContextChar = { fg = "#505050" }
+    -- Bracket Match
+    hl.MatchParen = { fg = "#FFFFFF", bg = "#292929", underline = true }
+    -- Completion
+    hl.CmpItemAbbr = { fg = c.fg }
+    hl.CmpItemAbbrMatch = { fg = "#FFFFFF", bold = true }
+    hl.CmpItemAbbrMatchFuzzy = { fg = "#FFFFFF", bold = true }
+    hl.CmpItemKind = { fg = c.builtin }
+    hl.CmpItemMenu = { fg = "#505050" }
+    -- Treesitter
+    hl['@markup.bold'] = { fg = "#f8c762", bold = true }
+    hl['@markup.italic'] = { fg = "#83d6c5", italic = true }
+    hl['@markup.link'] = { fg = "#81A1C1", underline = true }
+    hl['@markup.heading'] = { fg = c.fg, bold = true }
+    hl['@markup.quote'] = { fg = "#b0b0b0", italic = true }
+    hl['@markup.raw'] = { fg = c.string }
+    hl['@markup.strikethrough'] = { fg = c.comment, strikethrough = true }
+    hl['@markup.underline'] = { fg = c.fg, underline = true }
+    hl['@markup.list'] = { fg = c.func }
+    hl['@markup.list.checked'] = { fg = c.func }
+    hl['@markup.list.unchecked'] = { fg = c.func }
+    hl['@markup.math'] = { fg = c.string }
+    hl['@markup.heading.1'] = { fg = c.fg, bold = true }
+    hl['@markup.heading.2'] = { fg = c.fg, bold = true }
+    hl['@markup.heading.3'] = { fg = c.fg, bold = true }
+    hl['@markup.heading.4'] = { fg = c.fg, bold = true }
+    hl['@markup.heading.5'] = { fg = c.fg, bold = true }
+    hl['@markup.heading.6'] = { fg = c.fg, bold = true }
+    -- Markdown
+    hl.markdownHeadingDelimiter = { fg = c.fg, bold = true }
+    hl.markdownCode = { fg = c.string }
+    hl.markdownCodeBlock = { fg = c.string }
+    hl.markdownCodeDelimiter = { fg = c.string }
+    hl.markdownUrl = { fg = "#81A1C1", underline = true }
+    hl.markdownLinkText = { fg = "#81A1C1", underline = true }
+    hl.markdownH1 = { fg = c.fg, bold = true }
+    hl.markdownH2 = { fg = c.fg, bold = true }
+    hl.markdownH3 = { fg = c.fg, bold = true }
+    hl.markdownH4 = { fg = c.fg, bold = true }
+    hl.markdownH5 = { fg = c.fg, bold = true }
+    hl.markdownH6 = { fg = c.fg, bold = true }
+  end,
 
   ---@class AnysphereColorscheme.InternalConfig.plugins
   plugins = {

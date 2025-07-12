@@ -253,7 +253,7 @@ local DEFAULT_SETTINGS = {
     ---@type string
     func = "#efb080",  -- Updated to match function colors
     ---@type string
-    string = "#e394dc",  -- This matches ✓
+    string = "#e394dc",  -- This matches ✓ (PINK for strings)
     ---@type string
     number = "#ebc88d",  -- Updated to match number colors
     ---@type string
@@ -262,7 +262,7 @@ local DEFAULT_SETTINGS = {
     constant = "#82d2ce",  -- Updated to match constant colors
     ---@type string
     parameter = "#D8DEE9",  -- FIXED: Changed from yellow to white to match Cursor
-    bracket = "#87c3ff",  -- This matches ✓ (PURPLE for brackets)
+    bracket = "#e394dc",  -- FIXED: Changed from blue to pink to match string quotes
     ---@type string
     visual = "#40404099",  -- Updated to match editor.selectionBackground
     ---@type string

@@ -18,13 +18,13 @@ M.get_colors = function(conf)
     Exception       = { fg = c.keyword, gui = conf.style.keywords_exception }, -- 'try', 'catch', 'throw'
     Float           = { fg = c.number, gui = conf.style.float },               -- float constants
     Function        = { fg = c.func, gui = conf.style.functions },             -- functions
-    Identifier      = { fg = c.fg, gui = conf.style.variables },               -- (preferred) any variable
+    Identifier      = { fg = c.declaration, gui = conf.style.variables },      -- identifiers (const declarations)
     Include         = { fg = c.keyword },                                      -- preprocessor '#include'
     Keyword         = { fg = c.keyword, gui = conf.style.keywords },           -- any other keyword
     Label           = { fg = c.keyword, gui = conf.style.keywords_label },     -- 'case', 'default', etc
     Macro           = { fg = c.constant },                                     -- macros
     Number          = { fg = c.number, gui = conf.style.number },              -- number constant
-    Operator        = { fg = c.operator, gui = conf.style.operators },         -- '+', '*', 'sizeof' etc
+    Operator        = { fg = c.operator, gui = conf.style.operators },         -- operators like `+`, `=>`, etc
     PreCondit       = { fg = c.comment },                                      -- preprocessor conditionals '#if', '#endif' etc
     PreProc         = { fg = c.constant },                                     -- (preferred) generic preprocessor
     Repeat          = { fg = c.keyword, gui = conf.style.keywords_loop },      -- loop keywords: 'for', 'while' etc

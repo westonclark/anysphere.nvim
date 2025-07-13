@@ -55,13 +55,13 @@ M.get_colors = function(conf)
     ["@markup.strong"]         = { fg = c.fg, gui = "bold" },                            -- bold text
     ["@markup.underline"]      = { fg = c.fg, gui = "underline" },                       -- underlined text
     ["@module"]                = { fg = c.type },                                        -- modules should be blue
-    ["@number"]                = syntax["Number"],                                       -- all numbers
+    ["@number"]                = { fg = c.number },                                       -- numbers should be yellow
     ["@number.float"]          = syntax["Float"],                                        -- floats
-    ["@operator"]              = syntax["Operator"],                                     -- operators like `+`
-    ["@property"]              = { fg = c.fg },                                          -- properties (similar to TSField)
+    ["@operator"]              = { fg = c.operator },                                     -- operators like `+` and `=>`
+    ["@property"]              = { fg = c.declaration },                                 -- object keys should be purple
     ["@punctuation.bracket"]   = { fg = c.fg },                                          -- brackets and parentheses
     ["@punctuation.delimiter"] = { fg = c.fg },                                          -- delimiters, like `; . , `
-    ["@punctuation.special"]   = syntax["SpecialChar"],                                  -- special punctuation (e.g., `{}` in string interpolation)
+    ["@punctuation.special"]    = { fg = c.fg },                                          -- spread operator should be white
     ["@string"]                = syntax["String"],                                       -- strings
     ["@string.documentation"]  = syntax["Comment"],                                      -- doc strings
     ["@string.escape"]         = syntax["SpecialChar"],                                  -- escape characters within strings
@@ -80,6 +80,7 @@ M.get_colors = function(conf)
     ["@variable.builtin"]      = { fg = c.self },                                        -- built-in variables (this, self)
     ["@variable.member"]       = { fg = c.fg },                                          -- object members (properties are white)
     ["@variable.parameter"]    = { fg = c.fg },                                          -- function parameters
+    ["@variable.declaration"]    = { fg = c.declaration },                                 -- const declarations should be purple
 
     -- JavaScript/TypeScript specific import highlights
     ["@variable.javascript"]   = { fg = c.fg },                                          -- JS variables (white by default)

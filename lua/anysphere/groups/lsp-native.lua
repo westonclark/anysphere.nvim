@@ -24,7 +24,7 @@ M.get_colors = function(conf)
     ["@lsp.type.method"]                     = treesitter["@function.method"],       -- methods
     ["@lsp.type.namespace"]                  = { fg = c.type },                      -- namespaces should be blue
     ["@lsp.type.parameter"]                  = treesitter["@variable.parameter"],    -- function parameters
-    ["@lsp.type.property"]                   = { fg = c.fg },                        -- properties should be white
+    ["@lsp.type.property"]                   = { fg = c.declaration },                   -- object properties should be purple
     ["@lsp.type.selfParameter"]              = { fg = c.self },                      -- self parameters
     ["@lsp.type.type"]                       = { fg = c.keyword },                   -- general types should be green
     ["@lsp.type.typeParameter"]              = syntax["Typedef"],                    -- type parameters
@@ -33,16 +33,16 @@ M.get_colors = function(conf)
     -- Import-related semantic tokens - these should be blue
     ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.type },                      -- default library variables (imports)
     ["@lsp.typemod.function.defaultLibrary"] = { fg = c.type },                      -- default library functions (imports)
-    ["@lsp.typemod.variable.declaration"]    = { fg = c.type },                      -- variable declarations (imports)
-    ["@lsp.typemod.function.declaration"]    = { fg = c.type },                      -- function declarations (imports)
-    ["@lsp.mod.declaration"]                 = { fg = c.type },                      -- any declaration (imports)
+    ["@lsp.typemod.variable.declaration"]    = { fg = c.declaration },                   -- variable declarations should be purple
+    ["@lsp.typemod.function.declaration"]    = { fg = c.declaration },                   -- function declarations should be purple
+    ["@lsp.mod.declaration"]                 = { fg = c.declaration },                   -- any declaration should be purple
     ["@lsp.mod.readonly"]                    = { fg = c.type },                      -- readonly items (imports)
 
     ["@lsp.typemod.function"]                = { fg = c.func },                      -- function calls
     ["@lsp.typemod.function.builtin"]        = treesitter["@function.builtin"],      -- built-in functions
     ["@lsp.typemod.function.definition"]     = treesitter["@function"],              -- function definitions
     ["@lsp.typemod.type.defaultLibrary"]     = { fg = c.keyword },                   -- default library types should be green
-    ["@lsp.typemod.variable.readonly"]       = { fg = c.declaration },               -- readonly variables (const) should be purple
+    ["@lsp.typemod.variable.readonly"]       = { fg = c.declaration },                   -- const variables should be purple
     ["@lsp.typemod.variable.readwrite"]      = { fg = c.usage },                     -- variable usages (read/write) should be light blue
   }
 

@@ -81,14 +81,20 @@ M.get_colors = function(conf)
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
     ["@variable"]              = { fg = c.fg, gui = conf.style.variables },              -- any variable without another highlight - FIXED: should be white
-    ["@variable.builtin"]      = { fg = c.fg, gui = conf.style.builtin_variables },      -- FIXED: changed from c.builtin to c.fg (white)
-    ["@variable.member"]       = { fg = c.fg },                                          -- fields - FIXED: should be white like other variables
-    ["@variable.parameter"]    = { fg = c.fg },                                          -- function parameters - FIXED: should be white like in Cursor
+    ["@variable.builtin"]      = { fg = c.fg },                                             -- FIXED: built-in variables should be white, not green
+    ["@variable.member"]       = { fg = c.fg },                                             -- FIXED: object members should be white
+    ["@variable.parameter"]    = { fg = c.fg },                                             -- FIXED: function parameters should be white
 
-    -- JavaScript/TypeScript specific imports - all should be blue
-    ["@variable.other.readwrite.js"] = { fg = c.type },                                  -- imported names should be blue
-    ["@variable.other.readwrite.ts"] = { fg = c.type },                                  -- imported names should be blue
-    ["@variable.import"] = { fg = c.type },                                              -- imported variables should be blue
+    -- JavaScript/TypeScript specific import highlights
+    ["@variable.javascript"]   = { fg = c.fg },                                             -- JS variables (white by default)
+    ["@variable.typescript"]   = { fg = c.fg },                                             -- TS variables (white by default)
+    ["@function.javascript"]   = { fg = c.func },                                           -- JS functions (orange by default)
+    ["@function.typescript"]   = { fg = c.func },                                           -- TS functions (orange by default)
+    -- Import context overrides - these should be blue
+    ["@variable.import.javascript"] = { fg = c.type },                                      -- Imported variables in JS
+    ["@variable.import.typescript"] = { fg = c.type },                                      -- Imported variables in TS
+    ["@function.import.javascript"] = { fg = c.type },                                      -- Imported functions in JS
+    ["@function.import.typescript"] = { fg = c.type },                                      -- Imported functions in TS
   }
 
   return hl

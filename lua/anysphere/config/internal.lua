@@ -204,6 +204,18 @@ local DEFAULT_SETTINGS = {
     -- Keep import keywords green, but make imported variables/functions blue
     hl['@variable.other.readwrite.js'] = { fg = c.type }          -- imported variables in JS
     hl['@variable.other.readwrite.ts'] = { fg = c.type }          -- imported variables in TS
+    hl['@lsp.type.function.readonly'] = { fg = c.type }           -- imported functions
+    hl['@lsp.type.variable.readonly'] = { fg = c.type }           -- imported variables
+    hl['@lsp.typemod.variable.readonly'] = { fg = c.type }        -- imported readonly variables
+    hl['@lsp.typemod.function.readonly'] = { fg = c.type }        -- imported readonly functions
+
+    -- Additional import-specific overrides
+    hl['@lsp.typemod.variable.declaration.typescript'] = { fg = c.type }  -- TS imported variables
+    hl['@lsp.typemod.variable.declaration.javascript'] = { fg = c.type }  -- JS imported variables
+    hl['@lsp.typemod.function.declaration.typescript'] = { fg = c.type }  -- TS imported functions
+    hl['@lsp.typemod.function.declaration.javascript'] = { fg = c.type }  -- JS imported functions
+    hl['@lsp.mod.declaration.typescript'] = { fg = c.type }               -- TS declarations
+    hl['@lsp.mod.declaration.javascript'] = { fg = c.type }               -- JS declarations
   end,
 
   ---@class AnysphereColorscheme.InternalConfig.plugins

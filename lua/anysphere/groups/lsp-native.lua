@@ -29,18 +29,20 @@ M.get_colors = function(conf)
     ["@lsp.type.type"]                       = { fg = "#83d6c5" },                   -- ADDED: general types should also be green
     ["@lsp.type.typeParameter"]              = syntax["Typedef"],                    -- type parameters
     ["@lsp.type.variable"]                   = treesitter["@variable"],              -- FIXED: variables should be white
+
+    -- Import-related semantic tokens - these should be blue
+    ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.type },                      -- default library variables (imports)
+    ["@lsp.typemod.function.defaultLibrary"] = { fg = c.type },                      -- default library functions (imports)
+    ["@lsp.typemod.variable.declaration"]    = { fg = c.type },                      -- variable declarations (imports)
+    ["@lsp.typemod.function.declaration"]    = { fg = c.type },                      -- function declarations (imports)
+    ["@lsp.mod.declaration"]                 = { fg = c.type },                      -- any declaration (imports)
+    ["@lsp.mod.readonly"]                    = { fg = c.type },                      -- readonly items (imports)
+
     ["@lsp.typemod.function"]                = treesitter["@function.call"],         -- function calls
     ["@lsp.typemod.function.builtin"]        = treesitter["@function.builtin"],      -- built-in functions
-    ["@lsp.typemod.function.defaultLibrary"] = treesitter["@function.builtin"],      -- default library functions
     ["@lsp.typemod.function.definition"]     = treesitter["@function"],              -- function definitions
     ["@lsp.typemod.type.defaultLibrary"]     = { fg = "#83d6c5" },                   -- ADDED: default library types should be green
-    ["@lsp.typemod.variable.defaultLibrary"] = treesitter["@variable.builtin"],      -- default library variables (now white)
-    ["@lsp.typemod.variable.definition"]     = treesitter["@variable"],              -- FIXED: variable definitions should be white
-
-    -- JavaScript/TypeScript import-related LSP highlights - should be blue
-    ["@lsp.mod.readonly"]                    = { fg = c.type },                      -- ADDED: readonly (often used for imports) should be blue
     ["@lsp.typemod.variable.readonly"]       = { fg = c.type },                      -- ADDED: readonly variables (imports) should be blue
-    ["@lsp.typemod.variable.declaration"]    = { fg = c.type },                      -- ADDED: variable declarations (imports) should be blue
   }
 
   return hl

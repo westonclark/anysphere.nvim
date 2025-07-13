@@ -59,8 +59,8 @@ M.get_colors = function(conf)
     ["@number.float"]          = syntax["Float"],                                        -- floats
     ["@operator"]              = syntax["Operator"],                                     -- operators like `+`
     ["@property"]              = { fg = c.declaration },                                 -- properties (similar to TSField)
-    ["@punctuation.bracket"]   = { fg = c.bracket },                                     -- brackets and parentheses
-    ["@punctuation.delimiter"] = { fg = c.bracket },                                     -- delimiters, like `; . , `
+    ["@punctuation.bracket"]   = { fg = c.fg },                                          -- brackets and parentheses
+    ["@punctuation.delimiter"] = { fg = c.fg },                                          -- delimiters, like `; . , `
     ["@punctuation.special"]   = syntax["SpecialChar"],                                  -- special punctuation (e.g., `{}` in string interpolation)
     ["@string"]                = syntax["String"],                                       -- strings
     ["@string.documentation"]  = syntax["Comment"],                                      -- doc strings
@@ -78,7 +78,7 @@ M.get_colors = function(conf)
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
     ["@variable"]              = { fg = c.usage, gui = conf.style.variables },           -- any variable without another highlight
     ["@variable.builtin"]      = { fg = c.self },                                        -- built-in variables (this, self)
-    ["@variable.member"]       = { fg = c.usage },                                       -- object members (properties are purple, values are blue)
+    ["@variable.member"]       = { fg = c.declaration },                                 -- object members (properties are purple, values are blue)
     ["@variable.parameter"]    = { fg = c.fg },                                          -- function parameters
 
     -- JavaScript/TypeScript specific import highlights

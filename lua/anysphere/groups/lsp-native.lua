@@ -17,7 +17,7 @@ M.get_colors = function(conf)
     ["@lsp.type.comment"]                    = syntax["Comment"],                    -- comments
     ["@lsp.type.enum"]                       = syntax["Structure"],                  -- enums
     ["@lsp.type.enumMember"]                 = treesitter["@variable.member"],       -- enum members
-    ["@lsp.type.function"]                   = treesitter["@function.call"],         -- functions
+    ["@lsp.type.function"]                   = { fg = c.type },                      -- functions
     ["@lsp.type.generic"]                    = treesitter["@type"],                  -- generic types
     ["@lsp.type.interface"]                  = syntax["Structure"],                  -- interfaces
     ["@lsp.type.macro"]                      = syntax["Macro"],                      -- macros

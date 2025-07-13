@@ -78,6 +78,9 @@
 ---@field number? string
 ---@field declaration? string
 ---@field usage? string
+---@field self? string
+---@field attribute? string
+---@field tag_delimiter? string
 ---@field property? string
 ---@field constant? string
 ---@field parameter? string

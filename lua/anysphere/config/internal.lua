@@ -121,6 +121,12 @@ local DEFAULT_SETTINGS = {
     ---@type string
     usage = "#94C1FA", -- Added for variable usage (light blue)
     ---@type string
+    self = "#C1808A", -- Added for self/this (pinkish-red)
+    ---@type string
+    attribute = "#aaa0fa", -- Added for HTML attributes (light purple)
+    ---@type string
+    tag_delimiter = "#898989", -- Added for HTML tag delimiters (gray)
+    ---@type string
     property = "#D8DEE9",  -- Changed from purple to match regular variables (white/gray)
     ---@type string
     constant = "#82d2ce",  -- Updated to match constant colors

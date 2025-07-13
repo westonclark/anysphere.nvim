@@ -28,17 +28,17 @@ M.get_colors = function(conf)
     ["@lsp.type.selfParameter"]              = { fg = c.self },                      -- self parameters
     ["@lsp.type.type"]                       = { fg = c.keyword },                   -- general types should be green
     ["@lsp.type.typeParameter"]              = syntax["Typedef"],                    -- type parameters
-    ["@lsp.type.variable"]                   = { fg = c.usage },                         -- variables (let declarations)
+    ["@lsp.type.variable"]                   = { fg = c.usage },                         -- regular variables (let)
 
     -- Import-related semantic tokens - these should be blue
     ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.usage },                         -- default library variables
     ["@lsp.typemod.function.defaultLibrary"] = { fg = c.type },                      -- default library functions (imports)
-    ["@lsp.typemod.variable.declaration"]    = { fg = c.usage },                         -- let declarations should be blue
-    ["@lsp.typemod.function.declaration"]    = { fg = c.declaration },                   -- function declarations should be purple
+    ["@lsp.typemod.variable.declaration"]    = { fg = c.declaration },                   -- const declarations should be purple
+    ["@lsp.typemod.function.declaration"]    = { fg = c.func },                          -- function declarations
     ["@lsp.mod.declaration"]                 = { fg = c.declaration },                   -- any declaration should be purple
     ["@lsp.mod.readonly"]                    = { fg = c.declaration },                   -- const declarations should be purple
 
-    ["@lsp.typemod.function"]                = { fg = c.func },                      -- function calls
+    ["@lsp.typemod.function"]                = { fg = c.func },                          -- function calls
     ["@lsp.typemod.function.builtin"]        = treesitter["@function.builtin"],      -- built-in functions
     ["@lsp.typemod.function.definition"]     = treesitter["@function"],              -- function definitions
     ["@lsp.typemod.type.defaultLibrary"]     = { fg = c.keyword },                   -- default library types should be green

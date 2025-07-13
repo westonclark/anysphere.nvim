@@ -76,11 +76,13 @@ M.get_colors = function(conf)
     ["@type.builtin"]          = { fg = c.keyword, gui = conf.style.builtin_types },     -- built-in types should be green like keywords
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
-    ["@variable"]              = { fg = c.usage },                                         -- variables (let declarations)
+    ["@variable"]              = { fg = c.usage },                                         -- regular variables (let)
     ["@variable.builtin"]      = { fg = c.usage },                                         -- built-in variables
     ["@variable.parameter"]    = { fg = c.usage },                                         -- parameters of a function
-    ["@variable.declaration"]  = { fg = c.usage },                                         -- let declarations should be blue
-    ["@variable.readonly"]     = { fg = c.declaration },                                   -- const declarations should be purple
+    ["@variable.declaration"]  = { fg = c.declaration },                                   -- const declarations should be purple
+    ["@function"]             = { fg = c.func },                                          -- function calls
+    ["@function.builtin"]      = { fg = c.func },                                          -- built-in functions
+    ["@function.call"]        = { fg = c.func },                                          -- function calls
 
     -- JavaScript/TypeScript specific import highlights
     ["@variable.javascript"]   = { fg = c.fg },                                          -- JS variables (white by default)

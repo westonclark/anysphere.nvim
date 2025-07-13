@@ -28,10 +28,10 @@ M.get_colors = function(conf)
     ["@diff.minus"]            = diff["DiffDelete"],
     ["@function"]              = syntax["Function"],                                     -- functions
     ["@function.builtin"]      = { fg = c.constant, gui = conf.style.builtin_functions },    -- built-in functions
-    ["@function.call"]         = { fg = c.func },                                        -- function calls
+    ["@function.call"]         = { fg = c.declaration },                                 -- function calls
     ["@function.macro"]        = syntax["Macro"],                                        -- macro-defined functions
     ["@function.method"]       = { fg = c.func },                                        -- methods
-    ["@function.method.call"]  = { fg = c.func },                                        -- method calls
+    ["@function.method.call"]  = { fg = c.declaration },                                 -- method calls
     ["@keyword"]               = { fg = c.keyword, gui = conf.style.keywords },          -- general keywords
     ["@keyword.conditional"]   = { fg = c.keyword, gui = conf.style.conditionals },      -- conditional keywords
     ["@keyword.exception"]     = syntax["Exception"],                                    -- exception-related keywords

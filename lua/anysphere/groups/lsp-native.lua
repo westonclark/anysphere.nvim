@@ -38,11 +38,11 @@ M.get_colors = function(conf)
     ["@lsp.mod.declaration"]                 = { fg = c.type },                      -- any declaration (imports)
     ["@lsp.mod.readonly"]                    = { fg = c.type },                      -- readonly items (imports)
 
-    ["@lsp.typemod.function"]                = treesitter["@function.call"],         -- function calls
+    ["@lsp.typemod.function"]                = { fg = c.func },                      -- function calls
     ["@lsp.typemod.function.builtin"]        = treesitter["@function.builtin"],      -- built-in functions
     ["@lsp.typemod.function.definition"]     = treesitter["@function"],              -- function definitions
     ["@lsp.typemod.type.defaultLibrary"]     = { fg = c.keyword },                   -- ADDED: default library types should be green
-    ["@lsp.typemod.variable.readonly"]       = { fg = c.type },                      -- ADDED: readonly variables (imports) should be blue
+    ["@lsp.typemod.variable.readonly"]       = { fg = c.declaration },               -- readonly variables (const) should be purple
   }
 
   return hl

@@ -22,7 +22,7 @@ M.get_colors = function(conf)
     ["@lsp.type.interface"]                  = syntax["Structure"],                  -- interfaces
     ["@lsp.type.macro"]                      = syntax["Macro"],                      -- macros
     ["@lsp.type.method"]                     = treesitter["@function.method"],       -- methods
-    ["@lsp.type.namespace"]                  = treesitter["@module"],                -- namespaces
+    ["@lsp.type.namespace"]                  = { fg = c.type },                      -- FIXED: namespaces should be blue
     ["@lsp.type.parameter"]                  = treesitter["@variable.parameter"],    -- function parameters
     ["@lsp.type.property"]                   = treesitter["@variable.member"],       -- properties (changed to use white)
     ["@lsp.type.selfParameter"]              = syntax["Special"],                    -- self parameters
@@ -36,6 +36,11 @@ M.get_colors = function(conf)
     ["@lsp.typemod.type.defaultLibrary"]     = { fg = "#83d6c5" },                   -- ADDED: default library types should be green
     ["@lsp.typemod.variable.defaultLibrary"] = treesitter["@variable.builtin"],      -- default library variables (now white)
     ["@lsp.typemod.variable.definition"]     = treesitter["@variable"],              -- FIXED: variable definitions should be white
+
+    -- JavaScript/TypeScript import-related LSP highlights - should be blue
+    ["@lsp.mod.readonly"]                    = { fg = c.type },                      -- ADDED: readonly (often used for imports) should be blue
+    ["@lsp.typemod.variable.readonly"]       = { fg = c.type },                      -- ADDED: readonly variables (imports) should be blue
+    ["@lsp.typemod.variable.declaration"]    = { fg = c.type },                      -- ADDED: variable declarations (imports) should be blue
   }
 
   return hl

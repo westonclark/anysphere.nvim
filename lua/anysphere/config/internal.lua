@@ -199,6 +199,14 @@ local DEFAULT_SETTINGS = {
     hl['@lsp.type.builtinType'] = { fg = "#83d6c5" }  -- Built-in types like int, bool
     hl['@lsp.type.type'] = { fg = "#83d6c5" }         -- General types
     hl['@lsp.typemod.type.defaultLibrary'] = { fg = "#83d6c5" }  -- Default library types
+
+    -- JavaScript/TypeScript import highlights - all should be blue
+    hl['@keyword.import.javascript'] = { fg = c.type }            -- import keyword in JS
+    hl['@keyword.import.typescript'] = { fg = c.type }            -- import keyword in TS
+    hl['@keyword.from.javascript'] = { fg = c.type }              -- from keyword in JS
+    hl['@keyword.from.typescript'] = { fg = c.type }              -- from keyword in TS
+    hl['@variable.other.readwrite.js'] = { fg = c.type }          -- imported variables in JS
+    hl['@variable.other.readwrite.ts'] = { fg = c.type }          -- imported variables in TS
   end,
 
   ---@class AnysphereColorscheme.InternalConfig.plugins

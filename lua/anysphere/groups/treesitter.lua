@@ -35,7 +35,7 @@ M.get_colors = function(conf)
     ["@keyword"]               = { fg = c.keyword, gui = conf.style.keywords },          -- general keywords
     ["@keyword.conditional"]   = { fg = c.keyword, gui = conf.style.conditionals },      -- conditional keywords
     ["@keyword.exception"]     = syntax["Exception"],                                    -- exception-related keywords
-    ["@keyword.import"]        = syntax["PreProc"],                                      -- import-related keywords
+    ["@keyword.import"]        = { fg = c.type },                                        -- FIXED: import keywords should be blue
     ["@keyword.operator"]      = { fg = c.keyword, gui = conf.style.operators },         -- operator keywords (e.g., 'in' in Python)
     ["@keyword.return"]        = { fg = c.keyword, gui = conf.style.keyword_return },    -- return keywords
     ["@label"]                 = syntax["Label"],                                        -- labels
@@ -53,7 +53,7 @@ M.get_colors = function(conf)
     ["@markup.strikethrough"]  = { fg = c.comment, gui = "strikethrough" },              -- strikethrough text
     ["@markup.strong"]         = { fg = c.fg, gui = "bold" },                            -- bold text
     ["@markup.underline"]      = { fg = c.fg, gui = "underline" },                       -- underlined text
-    ["@module"]                = syntax["Constant"],                                     -- modules and namespaces
+    ["@module"]                = { fg = c.type },                                        -- FIXED: modules should be blue
     ["@number"]                = syntax["Number"],                                       -- all numbers
     ["@number.float"]          = syntax["Float"],                                        -- floats
     ["@operator"]              = syntax["Operator"],                                     -- operators like `+`
@@ -83,6 +83,11 @@ M.get_colors = function(conf)
     ["@variable.builtin"]      = { fg = c.fg, gui = conf.style.builtin_variables },      -- FIXED: changed from c.builtin to c.fg (white)
     ["@variable.member"]       = { fg = c.fg },                                          -- fields - FIXED: should be white like other variables
     ["@variable.parameter"]    = { fg = c.fg },                                          -- function parameters - FIXED: should be white like in Cursor
+
+    -- JavaScript/TypeScript specific imports - all should be blue
+    ["@variable.other.readwrite.js"] = { fg = c.type },                                  -- imported names should be blue
+    ["@variable.other.readwrite.ts"] = { fg = c.type },                                  -- imported names should be blue
+    ["@variable.import"] = { fg = c.type },                                              -- imported variables should be blue
   }
 
   return hl

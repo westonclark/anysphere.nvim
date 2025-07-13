@@ -33,16 +33,16 @@ M.get_colors = function(conf)
     -- Import-related semantic tokens - these should be blue
     ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.usage },                         -- default library variables
     ["@lsp.typemod.function.defaultLibrary"] = { fg = c.type },                      -- default library functions (imports)
-    ["@lsp.typemod.variable.declaration"]    = { fg = c.declaration },                   -- variable declarations should be purple
+    ["@lsp.typemod.variable.declaration"]    = { fg = c.usage },                         -- let declarations should be blue
     ["@lsp.typemod.function.declaration"]    = { fg = c.declaration },                   -- function declarations should be purple
     ["@lsp.mod.declaration"]                 = { fg = c.declaration },                   -- any declaration should be purple
-    ["@lsp.mod.readonly"]                    = { fg = c.type },                      -- readonly items (imports)
+    ["@lsp.mod.readonly"]                    = { fg = c.declaration },                   -- const declarations should be purple
 
     ["@lsp.typemod.function"]                = { fg = c.func },                      -- function calls
     ["@lsp.typemod.function.builtin"]        = treesitter["@function.builtin"],      -- built-in functions
     ["@lsp.typemod.function.definition"]     = treesitter["@function"],              -- function definitions
     ["@lsp.typemod.type.defaultLibrary"]     = { fg = c.keyword },                   -- default library types should be green
-    ["@lsp.typemod.variable.readonly"]       = { fg = c.declaration },                   -- const variables should be purple
+    ["@lsp.typemod.variable.readonly"]       = { fg = c.declaration },                   -- const declarations should be purple
     ["@lsp.typemod.variable.readwrite"]      = { fg = c.usage },                     -- variable usages (read/write) should be light blue
   }
 

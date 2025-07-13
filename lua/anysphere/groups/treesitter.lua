@@ -79,7 +79,8 @@ M.get_colors = function(conf)
     ["@variable"]              = { fg = c.usage },                                         -- variables (let declarations)
     ["@variable.builtin"]      = { fg = c.usage },                                         -- built-in variables
     ["@variable.parameter"]    = { fg = c.usage },                                         -- parameters of a function
-    ["@variable.declaration"]    = { fg = c.declaration },                                 -- const declarations should be purple
+    ["@variable.declaration"]  = { fg = c.usage },                                         -- let declarations should be blue
+    ["@variable.readonly"]     = { fg = c.declaration },                                   -- const declarations should be purple
 
     -- JavaScript/TypeScript specific import highlights
     ["@variable.javascript"]   = { fg = c.fg },                                          -- JS variables (white by default)

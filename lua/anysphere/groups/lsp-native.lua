@@ -13,21 +13,21 @@ M.get_colors = function(conf)
   local hl = {
     ["@lsp.type.builtinConstant"]            = treesitter["@constant.builtin"],      -- built-in constants
     ["@lsp.type.builtinType"]                = { fg = c.keyword },                   -- built-in types
-    ["@lsp.type.class"]                      = syntax["Structure"],                  -- classes
+    ["@lsp.type.class"]                      = { fg = c.func },                          -- classes should be orange
     ["@lsp.type.comment"]                    = syntax["Comment"],                    -- comments
-    ["@lsp.type.enum"]                       = syntax["Structure"],                  -- enums
+    ["@lsp.type.enum"]                       = { fg = c.func },                          -- enums should be orange
     ["@lsp.type.enumMember"]                 = treesitter["@variable.member"],       -- enum members
     ["@lsp.type.function"]                   = { fg = c.func },                      -- functions
     ["@lsp.type.generic"]                    = treesitter["@type"],                  -- generic types
-    ["@lsp.type.interface"]                  = syntax["Structure"],                  -- interfaces
+    ["@lsp.type.interface"]                  = { fg = c.func },                          -- interfaces should be orange
     ["@lsp.type.macro"]                      = syntax["Macro"],                      -- macros
-    ["@lsp.type.method"]                     = treesitter["@function.method"],       -- methods
+    ["@lsp.type.method"]                     = { fg = c.func },                          -- methods should be orange
     ["@lsp.type.namespace"]                  = { fg = c.type },                      -- namespaces should be blue
-    ["@lsp.type.parameter"]                  = treesitter["@variable.parameter"],    -- function parameters
-    ["@lsp.type.property"]                   = { fg = c.declaration },                   -- object properties should be purple
+    ["@lsp.type.parameter"]                  = { fg = c.usage, gui = "italic" },         -- parameters should be blue and italic
+    ["@lsp.type.property"]                   = { fg = c.declaration },                   -- properties should be purple
     ["@lsp.type.selfParameter"]              = { fg = c.self },                      -- self parameters
-    ["@lsp.type.type"]                       = { fg = c.keyword },                   -- general types should be green
-    ["@lsp.type.typeParameter"]              = syntax["Typedef"],                    -- type parameters
+    ["@lsp.type.type"]                       = { fg = c.func },                          -- types should be orange
+    ["@lsp.type.typeParameter"]              = { fg = c.func },                          -- type parameters should be orange
     ["@lsp.type.variable"]                   = { fg = c.usage },                         -- regular variables (let)
 
     -- Import-related semantic tokens - these should be blue

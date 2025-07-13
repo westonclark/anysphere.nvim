@@ -62,7 +62,7 @@ M.get_colors = function(conf)
     ["@punctuation.bracket"]   = { fg = c.fg },                                          -- brackets and parentheses
     ["@punctuation.delimiter"] = { fg = c.fg },                                          -- delimiters, like `; . , `
     ["@punctuation.special"]    = { fg = c.fg },                                          -- spread operator should be white
-    ["@string"]                = syntax["String"],                                       -- strings
+    ["@string"]                = { fg = c.string, gui = conf.style.strings },              -- string literals
     ["@string.documentation"]  = syntax["Comment"],                                      -- doc strings
     ["@string.escape"]         = syntax["SpecialChar"],                                  -- escape characters within strings
     ["@string.regexp"]         = syntax["SpecialChar"],                                  -- regular expressions
@@ -72,13 +72,14 @@ M.get_colors = function(conf)
     ["@tag.delimiter"]         = { fg = c.tag_delimiter },                               -- tag delimiters < >
     ["@text"]                  = { fg = c.fg },                                          -- text
     ["@text.literal"]          = { fg = c.string },                                      -- literal text
-    ["@type"]                  = syntax["Type"],                                         -- types
-    ["@type.builtin"]          = { fg = c.keyword, gui = conf.style.builtin_types },     -- built-in types should be green like keywords
-    ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
-    ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
+    ["@type"]                  = { fg = c.func },                                          -- types should be orange
+    ["@type.builtin"]          = { fg = c.func },                                          -- built-in types
+    ["@type.qualifier"]        = { fg = c.func },                                          -- type qualifiers
+    ["@method"]                = { fg = c.func },                                          -- method calls
+    ["@method.call"]           = { fg = c.func },                                          -- method calls
     ["@variable"]              = { fg = c.usage },                                         -- regular variables (let)
     ["@variable.builtin"]      = { fg = c.usage },                                         -- built-in variables
-    ["@variable.parameter"]    = { fg = c.usage },                                         -- parameters of a function
+    ["@variable.parameter"]    = { fg = c.usage, gui = "italic" },                         -- parameters
     ["@variable.declaration"]  = { fg = c.declaration },                                   -- const declarations should be purple
     ["@function"]             = { fg = c.func },                                          -- function calls
     ["@function.builtin"]      = { fg = c.func },                                          -- built-in functions

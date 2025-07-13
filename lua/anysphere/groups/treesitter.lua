@@ -58,7 +58,7 @@ M.get_colors = function(conf)
     ["@number"]                = syntax["Number"],                                       -- all numbers
     ["@number.float"]          = syntax["Float"],                                        -- floats
     ["@operator"]              = syntax["Operator"],                                     -- operators like `+`
-    ["@property"]              = { fg = c.property },                                    -- properties (similar to TSField)
+    ["@property"]              = { fg = c.declaration },                                 -- properties (similar to TSField)
     ["@punctuation.bracket"]   = { fg = c.bracket },                                     -- brackets and parentheses
     ["@punctuation.delimiter"] = { fg = c.bracket },                                     -- delimiters, like `; . , `
     ["@punctuation.special"]   = syntax["SpecialChar"],                                  -- special punctuation (e.g., `{}` in string interpolation)
@@ -76,10 +76,10 @@ M.get_colors = function(conf)
     ["@type.builtin"]          = { fg = c.keyword, gui = conf.style.builtin_types },     -- FIXED: built-in types should be green like keywords
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
-    ["@variable"]              = { fg = c.fg, gui = conf.style.variables },              -- any variable without another highlight - FIXED: should be white
-    ["@variable.builtin"]      = { fg = c.fg },                                          -- FIXED: built-in variables should be white, not green
-    ["@variable.member"]       = { fg = c.fg },                                          -- FIXED: object members should be white
-    ["@variable.parameter"]    = { fg = c.fg },                                          -- FIXED: function parameters should be white
+    ["@variable"]              = { fg = c.usage, gui = conf.style.variables },           -- any variable without another highlight
+    ["@variable.builtin"]      = { fg = c.fg },                                          -- built-in variables should be white
+    ["@variable.member"]       = { fg = c.declaration },                                 -- object members
+    ["@variable.parameter"]    = { fg = c.fg },                                          -- function parameters
 
     -- JavaScript/TypeScript specific import highlights
     ["@variable.javascript"]   = { fg = c.fg },                                          -- JS variables (white by default)

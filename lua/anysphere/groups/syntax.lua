@@ -38,7 +38,7 @@ M.get_colors = function(conf)
     Tag             = { fg = c.builtin },                                      -- can use <C-]> on this
     Title           = { fg = c.property },
     Todo            = { fg = c.func, gui = conf.style.comments },              -- (preferred) 'TODO' keywords in comments
-    Type            = { fg = c.type },                                         -- (preferred) 'int', 'long', 'char' etc
+    Type            = { fg = c.func },                                         -- (preferred) 'int', 'long', 'char' etc
     Typedef         = { fg = c.constant },                                     -- 'typedef'
     htmlTag         = { fg = c.string },
     htmlTagName     = { fg = c.string },

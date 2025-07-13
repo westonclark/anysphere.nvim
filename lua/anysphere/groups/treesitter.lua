@@ -35,8 +35,9 @@ M.get_colors = function(conf)
     ["@keyword"]               = { fg = c.keyword, gui = conf.style.keywords },          -- general keywords
     ["@keyword.conditional"]   = { fg = c.keyword, gui = conf.style.conditionals },      -- conditional keywords
     ["@keyword.exception"]     = syntax["Exception"],                                    -- exception-related keywords
-    ["@keyword.import"]        = { fg = c.type },                                        -- FIXED: import keywords should be blue
-    ["@keyword.operator"]      = { fg = c.keyword, gui = conf.style.operators },         -- operator keywords (e.g., 'in' in Python)
+    ["@keyword.import"]        = { fg = c.keyword, gui = conf.style.keywords },                 -- import keyword - should be green like other keywords
+    ["@keyword.function"]       = { fg = c.keyword, gui = conf.style.keywords },                 -- function keyword
+    ["@keyword.operator"]       = { fg = c.keyword, gui = conf.style.keywords },                 -- operator keyword
     ["@keyword.return"]        = { fg = c.keyword, gui = conf.style.keyword_return },    -- return keywords
     ["@label"]                 = syntax["Label"],                                        -- labels
     ["@markup"]                = { fg = c.fg },                                          -- text in markup languages

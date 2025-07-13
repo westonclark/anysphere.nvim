@@ -76,10 +76,9 @@ M.get_colors = function(conf)
     ["@type.builtin"]          = { fg = c.keyword, gui = conf.style.builtin_types },     -- built-in types should be green like keywords
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
-    ["@variable"]              = { fg = c.fg, gui = conf.style.variables },              -- any variable without another highlight
-    ["@variable.builtin"]      = { fg = c.self },                                        -- built-in variables (this, self)
-    ["@variable.member"]       = { fg = c.fg },                                          -- object members (properties are white)
-    ["@variable.parameter"]    = { fg = c.fg },                                          -- function parameters
+    ["@variable"]              = { fg = c.usage },                                         -- variables (let declarations)
+    ["@variable.builtin"]      = { fg = c.usage },                                         -- built-in variables
+    ["@variable.parameter"]    = { fg = c.usage },                                         -- parameters of a function
     ["@variable.declaration"]    = { fg = c.declaration },                                 -- const declarations should be purple
 
     -- JavaScript/TypeScript specific import highlights

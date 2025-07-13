@@ -18,7 +18,7 @@ M.get_colors = function(conf)
     Exception       = { fg = c.keyword, gui = conf.style.keywords_exception }, -- 'try', 'catch', 'throw'
     Float           = { fg = c.number, gui = conf.style.float },               -- float constants
     Function        = { fg = c.func, gui = conf.style.functions },             -- functions
-    Identifier      = { fg = c.declaration, gui = conf.style.variables },      -- identifiers (const declarations)
+    Identifier      = { fg = c.usage, gui = conf.style.variables },      -- any variable name
     Include         = { fg = c.keyword },                                      -- preprocessor '#include'
     Keyword         = { fg = c.keyword, gui = conf.style.keywords },           -- any other keyword
     Label           = { fg = c.keyword, gui = conf.style.keywords_label },     -- 'case', 'default', etc

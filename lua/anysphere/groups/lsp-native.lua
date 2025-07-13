@@ -28,10 +28,10 @@ M.get_colors = function(conf)
     ["@lsp.type.selfParameter"]              = { fg = c.self },                      -- self parameters
     ["@lsp.type.type"]                       = { fg = c.keyword },                   -- general types should be green
     ["@lsp.type.typeParameter"]              = syntax["Typedef"],                    -- type parameters
-    ["@lsp.type.variable"]                   = { fg = c.fg },                        -- variables should be white
+    ["@lsp.type.variable"]                   = { fg = c.usage },                         -- variables (let declarations)
 
     -- Import-related semantic tokens - these should be blue
-    ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.type },                      -- default library variables (imports)
+    ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.usage },                         -- default library variables
     ["@lsp.typemod.function.defaultLibrary"] = { fg = c.type },                      -- default library functions (imports)
     ["@lsp.typemod.variable.declaration"]    = { fg = c.declaration },                   -- variable declarations should be purple
     ["@lsp.typemod.function.declaration"]    = { fg = c.declaration },                   -- function declarations should be purple

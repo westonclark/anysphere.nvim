@@ -35,9 +35,9 @@ M.get_colors = function(conf)
     ["@keyword"]               = { fg = c.keyword, gui = conf.style.keywords },          -- general keywords
     ["@keyword.conditional"]   = { fg = c.keyword, gui = conf.style.conditionals },      -- conditional keywords
     ["@keyword.exception"]     = syntax["Exception"],                                    -- exception-related keywords
-    ["@keyword.import"]        = { fg = c.keyword, gui = conf.style.keywords },                 -- import keyword - should be green like other keywords
-    ["@keyword.function"]       = { fg = c.keyword, gui = conf.style.keywords },                 -- function keyword
-    ["@keyword.operator"]       = { fg = c.keyword, gui = conf.style.keywords },                 -- operator keyword
+    ["@keyword.import"]        = { fg = c.keyword, gui = conf.style.keywords },          -- import keyword - should be green like other keywords
+    ["@keyword.function"]      = { fg = c.keyword, gui = conf.style.keywords },          -- function keyword
+    ["@keyword.operator"]      = { fg = c.keyword, gui = conf.style.keywords },          -- operator keyword
     ["@keyword.return"]        = { fg = c.keyword, gui = conf.style.keyword_return },    -- return keywords
     ["@label"]                 = syntax["Label"],                                        -- labels
     ["@markup"]                = { fg = c.fg },                                          -- text in markup languages
@@ -54,11 +54,11 @@ M.get_colors = function(conf)
     ["@markup.strikethrough"]  = { fg = c.comment, gui = "strikethrough" },              -- strikethrough text
     ["@markup.strong"]         = { fg = c.fg, gui = "bold" },                            -- bold text
     ["@markup.underline"]      = { fg = c.fg, gui = "underline" },                       -- underlined text
-    ["@module"]                = { fg = c.type },                                        -- FIXED: modules should be blue
+    ["@module"]                = { fg = c.type },                                        -- modules should be blue
     ["@number"]                = syntax["Number"],                                       -- all numbers
     ["@number.float"]          = syntax["Float"],                                        -- floats
     ["@operator"]              = syntax["Operator"],                                     -- operators like `+`
-    ["@property"]              = { fg = c.declaration },                                 -- properties (similar to TSField)
+    ["@property"]              = { fg = c.fg },                                          -- properties (similar to TSField)
     ["@punctuation.bracket"]   = { fg = c.fg },                                          -- brackets and parentheses
     ["@punctuation.delimiter"] = { fg = c.fg },                                          -- delimiters, like `; . , `
     ["@punctuation.special"]   = syntax["SpecialChar"],                                  -- special punctuation (e.g., `{}` in string interpolation)
@@ -73,12 +73,12 @@ M.get_colors = function(conf)
     ["@text"]                  = { fg = c.fg },                                          -- text
     ["@text.literal"]          = { fg = c.string },                                      -- literal text
     ["@type"]                  = syntax["Type"],                                         -- types
-    ["@type.builtin"]          = { fg = c.keyword, gui = conf.style.builtin_types },     -- FIXED: built-in types should be green like keywords
+    ["@type.builtin"]          = { fg = c.keyword, gui = conf.style.builtin_types },     -- built-in types should be green like keywords
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
     ["@variable"]              = { fg = c.fg, gui = conf.style.variables },              -- any variable without another highlight
     ["@variable.builtin"]      = { fg = c.self },                                        -- built-in variables (this, self)
-    ["@variable.member"]       = { fg = c.declaration },                                 -- object members (properties are purple, values are blue)
+    ["@variable.member"]       = { fg = c.fg },                                          -- object members (properties are white)
     ["@variable.parameter"]    = { fg = c.fg },                                          -- function parameters
 
     -- JavaScript/TypeScript specific import highlights
@@ -87,9 +87,9 @@ M.get_colors = function(conf)
     ["@function.javascript"]   = { fg = c.func },                                        -- JS functions (orange by default)
     ["@function.typescript"]   = { fg = c.func },                                        -- TS functions (orange by default)
     -- Import context overrides - these should be blue
-    ["@variable.import"] = { fg = c.type },                                  -- Imported variables
-    ["@function.import"] = { fg = c.type },                                  -- Imported functions
-    ["@module.import"]   = { fg = c.type },                                  -- Imported modules
+    ["@variable.import"]       = { fg = c.type },                                        -- Imported variables
+    ["@function.import"]       = { fg = c.type },                                        -- Imported functions
+    ["@module.import"]         = { fg = c.type },                                        -- Imported modules
   }
 
   return hl

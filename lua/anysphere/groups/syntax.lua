@@ -17,8 +17,8 @@ M.get_colors = function(conf)
     Error           = { fg = c.error, gui = conf.style.error },                -- (preferred) any erroneous construct
     Exception       = { fg = c.keyword, gui = conf.style.keywords_exception }, -- 'try', 'catch', 'throw'
     Float           = { fg = c.number, gui = conf.style.float },               -- float constants
-    Function        = { fg = c.declaration, gui = conf.style.functions },      -- functions
-    Identifier      = { fg = c.parameter, gui = conf.style.variables },         -- (preferred) any variable
+    Function        = { fg = c.func, gui = conf.style.functions },             -- functions
+    Identifier      = { fg = c.fg, gui = conf.style.variables },               -- (preferred) any variable
     Include         = { fg = c.keyword },                                      -- preprocessor '#include'
     Keyword         = { fg = c.keyword, gui = conf.style.keywords },           -- any other keyword
     Label           = { fg = c.keyword, gui = conf.style.keywords_label },     -- 'case', 'default', etc
@@ -38,7 +38,7 @@ M.get_colors = function(conf)
     Tag             = { fg = c.builtin },                                      -- can use <C-]> on this
     Title           = { fg = c.property },
     Todo            = { fg = c.func, gui = conf.style.comments },              -- (preferred) 'TODO' keywords in comments
-    Type            = { fg = c.func },                                         -- (preferred) 'int', 'long', 'char' etc
+    Type            = { fg = c.type },                                         -- (preferred) 'int', 'long', 'char' etc
     Typedef         = { fg = c.constant },                                     -- 'typedef'
     htmlTag         = { fg = c.string },
     htmlTagName     = { fg = c.string },

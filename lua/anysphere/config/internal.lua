@@ -99,60 +99,60 @@ local DEFAULT_SETTINGS = {
   ---@class AnysphereColorscheme.InternalConfig.colors
   colors = {
     ---@type string
-    bg = "#1a1a1a",  -- Changed from "#181818" to match editor.background
+    bg = "#1a1a1a",  -- Matches editor.background
     ---@type string
-    fg = "#D8DEE9",  -- Changed from "#d6d6dd" to match editor.foreground
+    fg = "#D8DEE9",  -- Matches editor.foreground
     ---@type string
-    floatBorder = "#2A2A2A",  -- Updated to match dropdown.border
+    floatBorder = "#2A2A2A",  -- Matches dropdown.border
     ---@type string
-    line = "#292929",  -- Changed from "#212121" to match editor.lineHighlightBackground
+    line = "#292929",  -- Matches editor.lineHighlightBackground
     ---@type string
-    comment = "#6C6C6C",  -- Fixed: solid gray instead of alpha channel that doesn't work in Neovim
+    comment = "#6C6C6C",  -- Solid gray instead of alpha channel
     ---@type string
-    builtin = "#83d6c5",  -- FIXED: Changed to match keyword color (same green as "for", "if")
+    builtin = "#83d6c5",  -- Green for built-ins
     ---@type string
-    func = "#efb080",  -- Updated to match function colors
+    func = "#efb080",  -- Orange for functions
     ---@type string
-    string = "#e394dc",  -- This matches ✓ (PINK for strings)
+    string = "#e394dc",  -- Pink for strings
     ---@type string
-    number = "#ebc88d",  -- Updated to match number colors
+    number = "#ebc88d",  -- Yellow for numbers
     ---@type string
-    declaration = "#B48EAD", -- Added for declarations (purple)
+    declaration = "#B48EAD", -- Purple for declarations
     ---@type string
-    usage = "#94C1FA", -- Added for variable usage (light blue)
+    usage = "#94C1FA", -- Light blue for variable usage
     ---@type string
-    self = "#C1808A", -- Added for self/this (pinkish-red)
+    self = "#C1808A", -- Pinkish-red for self/this
     ---@type string
-    attribute = "#aaa0fa", -- Added for HTML attributes (light purple)
+    attribute = "#aaa0fa", -- Light purple for HTML attributes
     ---@type string
-    tag_delimiter = "#898989", -- Added for HTML tag delimiters (gray)
+    tag_delimiter = "#898989", -- Gray for HTML tag delimiters
     ---@type string
-    property = "#D8DEE9",  -- Changed from purple to match regular variables (white/gray)
+    property = "#D8DEE9",  -- White for properties
     ---@type string
-    constant = "#82d2ce",  -- Updated to match constant colors
+    constant = "#82d2ce",  -- Cyan for constants
     ---@type string
-    parameter = "#D8DEE9",  -- FIXED: Changed from yellow to white to match Cursor
-    bracket = "#e394dc",  -- FIXED: Changed from blue to pink to match string quotes
+    parameter = "#D8DEE9",  -- White for parameters
+    bracket = "#e394dc",  -- Pink for brackets
     ---@type string
-    visual = "#40404099",  -- Updated to match editor.selectionBackground
+    visual = "#40404099",  -- Matches editor.selectionBackground
     ---@type string
-    error = "#BF616A",  -- Updated to match error colors
+    error = "#BF616A",  -- Red for errors
     ---@type string
-    warning = "#EBCB8B",  -- Updated to match warning colors
+    warning = "#EBCB8B",  -- Yellow for warnings
     ---@type string
-    hint = "#88C0D0",  -- Updated to match hint colors
+    hint = "#88C0D0",  -- Cyan for hints
     ---@type string
-    operator = "#efb080",  -- FIXED: Changed from light gray to orange for := operator
+    operator = "#efb080",  -- Orange for operators
     ---@type string
-    keyword = "#83d6c5",  -- This matches ✓ (GREEN for keywords like "for", "if")
+    keyword = "#83d6c5",  -- Green for keywords
     ---@type string
-    type = "#87c3ff",  -- This matches ✓
+    type = "#87c3ff",  -- Blue for types
     ---@type string
-    search = "#88C0D066",  -- Updated to match editor.findMatchBackground
+    search = "#88C0D066",  -- Matches editor.findMatchBackground
     ---@type string
-    plus = "#A3BE8C",  -- Updated to match git added colors
+    plus = "#A3BE8C",  -- Green for git added
     ---@type string
-    delta = "#EBCB8B",  -- Updated to match git modified colors
+    delta = "#EBCB8B",  -- Yellow for git modified
   },
 }
 

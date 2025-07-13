@@ -117,13 +117,13 @@ local DEFAULT_SETTINGS = {
     ---@type string
     number = "#ebc88d",  -- Yellow for numbers
     ---@type string
-    declaration = "#B48EAD", -- Purple for declarations
+    declaration = "#B48EAD", -- Dark purple for declarations and const variables
     ---@type string
     usage = "#94C1FA", -- Light blue for variable usage
     ---@type string
     self = "#C1808A", -- Pinkish-red for self/this
     ---@type string
-    attribute = "#aaa0fa", -- Light purple for HTML attributes
+    attribute = "#B48EAD", -- Dark purple for HTML attributes (same as declarations)
     ---@type string
     tag_delimiter = "#898989", -- Gray for HTML tag delimiters
     ---@type string

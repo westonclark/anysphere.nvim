@@ -11,7 +11,7 @@ M.get_colors = function(conf)
     Character       = { fg = c.string },                                       -- character constants
     Comment         = { fg = c.comment, gui = conf.style.comments },           -- comments
     Conditional     = { fg = c.keyword, gui = conf.style.conditionals },       -- conditionals
-    Constant        = { fg = c.constant },                                     -- (preferred) any constant
+    Constant        = { fg = c.declaration },                                  -- (preferred) any constant
     Define          = { fg = c.comment },                                      -- preprocessor '#define'
     Delimiter       = { fg = c.fg },                                           -- delimiter characters
     Error           = { fg = c.error, gui = conf.style.error },                -- (preferred) any erroneous construct

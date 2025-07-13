@@ -69,7 +69,7 @@ local DEFAULT_SETTINGS = {
     hl.WinSeparator = { fg = "#FFFFFF0D", bg = M.current.transparent and "none" or c.bg }  -- Updated to match panel.border
     hl.CursorLine = { bg = M.current.transparent and "none" or c.line }  -- Now uses updated line color
     hl.CursorColumn = { bg = M.current.transparent and "none" or c.line }  -- Now uses updated line color
-    hl.Visual = { bg = "#606060" }  -- FIXED: more visible gray for selection
+    hl.Visual = { bg = "#303030" }  -- FIXED: more visible gray for selection
     hl.Search = { bg = c.search, fg = c.fg }  -- Now uses updated search color
     hl.IncSearch = { bg = "#88C0D044", fg = c.fg }  -- Updated to match editor.findMatchHighlightBackground
     hl.MatchParen = { fg = "#FFFFFF", bg = M.current.transparent and "none" or c.line, underline = true }  -- Updated

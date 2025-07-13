@@ -59,6 +59,7 @@ M.get_colors = function(conf)
     ["@number.float"]          = syntax["Float"],                                        -- floats
     ["@operator"]              = { fg = c.operator },                                     -- operators like `+` and `=>`
     ["@property"]              = { fg = c.declaration },                                 -- object keys should be purple
+    ["@property.function"]     = { fg = c.func },                                          -- object method properties should be orange
     ["@punctuation.bracket"]   = { fg = c.fg },                                          -- brackets and parentheses
     ["@punctuation.delimiter"] = { fg = c.fg },                                          -- delimiters, like `; . , `
     ["@punctuation.special"]    = { fg = c.fg },                                          -- spread operator should be white
@@ -79,7 +80,7 @@ M.get_colors = function(conf)
     ["@method.call"]           = { fg = c.func },                                          -- method calls
     ["@variable"]              = { fg = c.usage },                                         -- regular variables (let)
     ["@variable.builtin"]      = { fg = c.usage },                                         -- built-in variables
-    ["@variable.parameter"]    = { fg = c.usage, gui = "italic" },                         -- parameters
+    ["@variable.parameter"]    = { fg = c.fg },                                            -- parameters should be white
     ["@variable.declaration"]  = { fg = c.declaration },                                   -- const declarations should be purple
     ["@function"]             = { fg = c.func },                                          -- function calls
     ["@function.builtin"]      = { fg = c.func },                                          -- built-in functions

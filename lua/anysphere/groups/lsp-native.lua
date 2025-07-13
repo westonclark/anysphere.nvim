@@ -23,8 +23,9 @@ M.get_colors = function(conf)
     ["@lsp.type.macro"]                      = syntax["Macro"],                      -- macros
     ["@lsp.type.method"]                     = { fg = c.func },                          -- methods should be orange
     ["@lsp.type.namespace"]                  = { fg = c.type },                      -- namespaces should be blue
-    ["@lsp.type.parameter"]                  = { fg = c.usage, gui = "italic" },         -- parameters should be blue and italic
-    ["@lsp.type.property"]                   = { fg = c.declaration },                   -- properties should be purple
+    ["@lsp.type.parameter"]                  = { fg = c.fg },                              -- parameters should be white
+    ["@lsp.type.property"]                   = { fg = c.declaration },                   -- object properties should be purple
+    ["@lsp.type.property.function"]          = { fg = c.func },                          -- object method properties should be orange
     ["@lsp.type.selfParameter"]              = { fg = c.self },                      -- self parameters
     ["@lsp.type.type"]                       = { fg = c.func },                          -- types should be orange
     ["@lsp.type.typeParameter"]              = { fg = c.func },                          -- type parameters should be orange

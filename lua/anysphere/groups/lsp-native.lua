@@ -43,6 +43,7 @@ M.get_colors = function(conf)
     ["@lsp.typemod.function.definition"]     = treesitter["@function"],              -- function definitions
     ["@lsp.typemod.type.defaultLibrary"]     = { fg = c.keyword },                   -- ADDED: default library types should be green
     ["@lsp.typemod.variable.readonly"]       = { fg = c.declaration },               -- readonly variables (const) should be purple
+    ["@lsp.typemod.variable.readwrite"]      = { fg = c.usage },                     -- variable usages (read/write) should be light blue
   }
 
   return hl

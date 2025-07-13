@@ -76,14 +76,14 @@ M.get_colors = function(conf)
     ["@type.builtin"]          = { fg = c.keyword, gui = conf.style.builtin_types },     -- FIXED: built-in types should be green like keywords
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
-    ["@variable"]              = { fg = c.usage, gui = conf.style.variables },           -- any variable without another highlight
+    ["@variable"]              = { fg = c.fg, gui = conf.style.variables },              -- any variable without another highlight
     ["@variable.builtin"]      = { fg = c.self },                                        -- built-in variables (this, self)
     ["@variable.member"]       = { fg = c.declaration },                                 -- object members (properties are purple, values are blue)
     ["@variable.parameter"]    = { fg = c.fg },                                          -- function parameters
 
     -- JavaScript/TypeScript specific import highlights
-    ["@variable.javascript"]   = { fg = c.usage },                                       -- JS variables (light blue by default)
-    ["@variable.typescript"]   = { fg = c.usage },                                       -- TS variables (light blue by default)
+    ["@variable.javascript"]   = { fg = c.fg },                                          -- JS variables (white by default)
+    ["@variable.typescript"]   = { fg = c.fg },                                          -- TS variables (white by default)
     ["@function.javascript"]   = { fg = c.func },                                        -- JS functions (orange by default)
     ["@function.typescript"]   = { fg = c.func },                                        -- TS functions (orange by default)
     -- Import context overrides - these should be blue

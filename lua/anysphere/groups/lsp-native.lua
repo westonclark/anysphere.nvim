@@ -12,7 +12,7 @@ M.get_colors = function(conf)
   -- stylua: ignore
   local hl = {
     ["@lsp.type.builtinConstant"]            = treesitter["@constant.builtin"],      -- built-in constants
-    ["@lsp.type.builtinType"]                = { fg = "#83d6c5" },                   -- HARDCODED: green color for built-in types
+    ["@lsp.type.builtinType"]                = { fg = c.keyword },                   -- built-in types
     ["@lsp.type.class"]                      = syntax["Structure"],                  -- classes
     ["@lsp.type.comment"]                    = syntax["Comment"],                    -- comments
     ["@lsp.type.enum"]                       = syntax["Structure"],                  -- enums
@@ -26,7 +26,7 @@ M.get_colors = function(conf)
     ["@lsp.type.parameter"]                  = treesitter["@variable.parameter"],    -- function parameters
     ["@lsp.type.property"]                   = treesitter["@variable.member"],       -- properties (changed to use white)
     ["@lsp.type.selfParameter"]              = syntax["Special"],                    -- self parameters
-    ["@lsp.type.type"]                       = { fg = "#83d6c5" },                   -- ADDED: general types should also be green
+    ["@lsp.type.type"]                       = { fg = c.keyword },                   -- general types should also be green
     ["@lsp.type.typeParameter"]              = syntax["Typedef"],                    -- type parameters
     ["@lsp.type.variable"]                   = treesitter["@variable"],              -- FIXED: variables should be white
 
@@ -41,7 +41,7 @@ M.get_colors = function(conf)
     ["@lsp.typemod.function"]                = treesitter["@function.call"],         -- function calls
     ["@lsp.typemod.function.builtin"]        = treesitter["@function.builtin"],      -- built-in functions
     ["@lsp.typemod.function.definition"]     = treesitter["@function"],              -- function definitions
-    ["@lsp.typemod.type.defaultLibrary"]     = { fg = "#83d6c5" },                   -- ADDED: default library types should be green
+    ["@lsp.typemod.type.defaultLibrary"]     = { fg = c.keyword },                   -- ADDED: default library types should be green
     ["@lsp.typemod.variable.readonly"]       = { fg = c.type },                      -- ADDED: readonly variables (imports) should be blue
   }
 

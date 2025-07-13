@@ -76,6 +76,7 @@
 ---@field func? string
 ---@field string? string
 ---@field number? string
+---@field declaration? string
 ---@field property? string
 ---@field constant? string
 ---@field parameter? string

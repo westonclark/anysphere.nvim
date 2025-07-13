@@ -12,14 +12,14 @@ M.get_colors = function(conf)
 
     --stylua: ignore
   local hl = {
-    ["@attribute"]             = syntax["Constant"],                                     -- attributes, like <decorators> in python
+    ["@attribute"]             = { fg = c.builtin },                                     -- attributes, like <decorators> in python
     ["@boolean"]               = syntax["Boolean"],                                      -- booleans
     ["@character"]             = syntax["String"],                                       -- character literals
     ["@character.special"]     = syntax["SpecialChar"],                                  -- special characters
     ["@constant"]              = syntax["Constant"],                                     -- constants
     ["@constant.builtin"]      = { fg = c.number, gui = conf.style.builtin_constants },  -- constants defined by the language, like 'nil' in Lua
     ["@constant.macro"]        = syntax["Macro"],                                        -- constants defined by macros, like 'NULL' in C
-    ["@constructor"]           = { fg = c.constant, gui = conf.style.functions },        -- constructor calls and definitions
+    ["@constructor"]           = { fg = c.type, gui = conf.style.functions },            -- constructor calls and definitions
     ["@constructor.lua"]       = { fg = c.type, gui = conf.style.functions },            -- constructor calls and definitions, `= { }` in Lua
     ["@text.diff.add"]         = diff["DiffAdd"],
     ["@text.diff.delete"]      = diff["DiffDelete"],
@@ -28,10 +28,10 @@ M.get_colors = function(conf)
     ["@diff.minus"]            = diff["DiffDelete"],
     ["@function"]              = syntax["Function"],                                     -- functions
     ["@function.builtin"]      = { fg = c.func, gui = conf.style.builtin_functions },    -- built-in functions
-    ["@function.call"]         = { fg = c.parameter },                                   -- function calls
+    ["@function.call"]         = { fg = c.func },                                        -- function calls
     ["@function.macro"]        = syntax["Macro"],                                        -- macro-defined functions
     ["@function.method"]       = { fg = c.func },                                        -- methods
-    ["@function.method.call"]  = { fg = c.type },                                        -- method calls
+    ["@function.method.call"]  = { fg = c.func },                                        -- method calls
     ["@keyword"]               = { fg = c.keyword, gui = conf.style.keywords },          -- general keywords
     ["@keyword.conditional"]   = { fg = c.keyword, gui = conf.style.conditionals },      -- conditional keywords
     ["@keyword.exception"]     = syntax["Exception"],                                    -- exception-related keywords
@@ -59,8 +59,8 @@ M.get_colors = function(conf)
     ["@number.float"]          = syntax["Float"],                                        -- floats
     ["@operator"]              = syntax["Operator"],                                     -- operators like `+`
     ["@property"]              = { fg = c.property },                                    -- properties (similar to TSField)
-    ["@punctuation.bracket"]   = { fg = c.bracket },                                          -- brackets and parentheses
-    ["@punctuation.delimiter"] = { fg = c.fg },                                          -- delimiters, like `; . , `
+    ["@punctuation.bracket"]   = { fg = c.bracket },                                     -- brackets and parentheses
+    ["@punctuation.delimiter"] = { fg = c.bracket },                                     -- delimiters, like `; . , `
     ["@punctuation.special"]   = syntax["SpecialChar"],                                  -- special punctuation (e.g., `{}` in string interpolation)
     ["@string"]                = syntax["String"],                                       -- strings
     ["@string.documentation"]  = syntax["Comment"],                                      -- doc strings
@@ -68,33 +68,28 @@ M.get_colors = function(conf)
     ["@string.regexp"]         = syntax["SpecialChar"],                                  -- regular expressions
     ["@string.special.symbol"] = syntax["Identifier"],                                   -- special symbols in strings
     ["@string.special.url"]    = { fg = c.func },                                        -- URLs, links, emails
-    ["@tag"]                  = { fg = c.string },                                        -- html/jsx tags as yellow
-    ["@tag.delimiter"]        = { fg = c.string },                                        -- tag delimiters < > as yellow
-    ["@text"]                 = { fg = c.string },                                        -- text content as yellow
-    ["@text.literal"]         = { fg = c.string },                                        -- literal text as yellow
-    ["@attribute"]            = { fg = c.builtin },                                        -- tag attributes (className, id, etc.)
-    ["@string"]               = { fg = c.string },                                         -- attribute values
-    ["@punctuation.bracket"]  = { fg = c.bracket },                                        -- braces/brackets
-    ["@punctuation.delimiter"] = { fg = c.bracket },                                       -- delimiters (e.g. =)
+    ["@tag"]                   = { fg = c.string },                                      -- html/jsx tags
+    ["@tag.delimiter"]         = { fg = c.string },                                      -- tag delimiters < >
+    ["@text"]                  = { fg = c.fg },                                          -- text
+    ["@text.literal"]          = { fg = c.string },                                      -- literal text
     ["@type"]                  = syntax["Type"],                                         -- types
     ["@type.builtin"]          = { fg = c.keyword, gui = conf.style.builtin_types },     -- FIXED: built-in types should be green like keywords
     ["@type.declaration"]      = { fg = c.constant },                                    -- type declarations
     ["@type.definition"]       = syntax["Typedef"],                                      -- typedefs
     ["@variable"]              = { fg = c.fg, gui = conf.style.variables },              -- any variable without another highlight - FIXED: should be white
-    ["@variable.builtin"]      = { fg = c.fg },                                             -- FIXED: built-in variables should be white, not green
-    ["@variable.member"]       = { fg = c.fg },                                             -- FIXED: object members should be white
-    ["@variable.parameter"]    = { fg = c.fg },                                             -- FIXED: function parameters should be white
+    ["@variable.builtin"]      = { fg = c.fg },                                          -- FIXED: built-in variables should be white, not green
+    ["@variable.member"]       = { fg = c.fg },                                          -- FIXED: object members should be white
+    ["@variable.parameter"]    = { fg = c.fg },                                          -- FIXED: function parameters should be white
 
     -- JavaScript/TypeScript specific import highlights
-    ["@variable.javascript"]   = { fg = c.fg },                                             -- JS variables (white by default)
-    ["@variable.typescript"]   = { fg = c.fg },                                             -- TS variables (white by default)
-    ["@function.javascript"]   = { fg = c.func },                                           -- JS functions (orange by default)
-    ["@function.typescript"]   = { fg = c.func },                                           -- TS functions (orange by default)
+    ["@variable.javascript"]   = { fg = c.fg },                                          -- JS variables (white by default)
+    ["@variable.typescript"]   = { fg = c.fg },                                          -- TS variables (white by default)
+    ["@function.javascript"]   = { fg = c.func },                                        -- JS functions (orange by default)
+    ["@function.typescript"]   = { fg = c.func },                                        -- TS functions (orange by default)
     -- Import context overrides - these should be blue
-    ["@variable.import.javascript"] = { fg = c.type },                                      -- Imported variables in JS
-    ["@variable.import.typescript"] = { fg = c.type },                                      -- Imported variables in TS
-    ["@function.import.javascript"] = { fg = c.type },                                      -- Imported functions in JS
-    ["@function.import.typescript"] = { fg = c.type },                                      -- Imported functions in TS
+    ["@variable.import"] = { fg = c.type },                                  -- Imported variables
+    ["@function.import"] = { fg = c.type },                                  -- Imported functions
+    ["@module.import"]   = { fg = c.type },                                  -- Imported modules
   }
 
   return hl

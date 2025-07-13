@@ -24,22 +24,44 @@ local function set_vim_highlights(highlights)
 end
 
 M.set_highlights = function()
-  if groups.treesitter and vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
-    set_vim_highlights(groups.treesitter)
-  end
-  if groups.lsp_native and vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
-    set_vim_highlights(groups.lsp_native)
-  end
-
   local highlights = {}
-  for _, group in pairs(groups) do
-    for hl, settings in pairs(group) do
-      highlights[hl] = settings
+
+  -- Define a loading order to ensure correct override behavior.
+  -- More general groups are loaded first, more specific ones later.
+  local load_order = {
+    "common",
+    "syntax",
+    "diff",
+    "treesitter", -- Treesitter extends/overrides syntax
+    "lsp_native", -- LSP semantic tokens override treesitter
+    "lsp_plugin",
+    "gitsigns",
+    "neotest",
+    "mini",
+    "neotree",
+    "dashboard",
+    "telescope",
+    "cmp",
+    "blink",
+    "snacks_picker",
+    "snacks_input",
+    "snacks_indent",
+    "rainbow_delimiters",
+    "vim_better_whitespace",
+  }
+
+  for _, group_name in ipairs(load_order) do
+    if groups[group_name] then
+      for hl, settings in pairs(groups[group_name]) do
+        highlights[hl] = settings
+      end
     end
   end
 
   -- Allow user to add or override any highlight groups
-  curr_internal_conf.on_highlights(highlights, curr_internal_conf.colors)
+  if type(curr_internal_conf.on_highlights) == "function" then
+    curr_internal_conf.on_highlights(highlights, curr_internal_conf.colors)
+  end
   set_vim_highlights(highlights)
 end
 

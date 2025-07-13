@@ -24,6 +24,8 @@ M.get_colors = function(conf)
     ["@lsp.type.method"]                     = { fg = c.func },                          -- methods should be orange
     ["@lsp.type.namespace"]                  = { fg = c.type },                      -- namespaces should be blue
     ["@lsp.type.parameter"]                  = { fg = c.fg },                              -- parameters should be white
+    ["@lsp.typemod.parameter.declaration"]   = { fg = c.fg },                              -- parameters in function definitions should be white
+    ["@lsp.typemod.parameter.definition"]   = { fg = c.fg },                              -- parameters in function definitions should be white
     ["@lsp.type.property"]                   = { fg = c.declaration },                   -- object properties should be purple
     ["@lsp.type.property.function"]          = { fg = c.func },                          -- object method properties should be orange
     ["@lsp.type.selfParameter"]              = { fg = c.self },                      -- self parameters

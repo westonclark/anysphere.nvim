@@ -85,6 +85,8 @@ M.get_colors = function(conf)
     ["@function"]             = { fg = c.func },                                          -- function calls
     ["@function.builtin"]      = { fg = c.func },                                          -- built-in functions
     ["@function.call"]        = { fg = c.func },                                          -- function calls
+    ["@parameter"]             = { fg = c.fg },                                            -- parameters should be white
+    ["@parameter.definition"]  = { fg = c.fg },                                            -- parameters in function definitions should be white
 
     -- JavaScript/TypeScript specific import highlights
     ["@variable.javascript"]   = { fg = c.fg },                                          -- JS variables (white by default)

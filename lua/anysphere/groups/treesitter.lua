@@ -26,12 +26,12 @@ M.get_colors = function(conf)
     ["@diff.plus"]             = diff["DiffAdd"],
     ["@diff.delta"]            = diff["DiffChange"],
     ["@diff.minus"]            = diff["DiffDelete"],
-    ["@function"]              = syntax["Function"],                                     -- functions
+    ["@function"]              = { fg = c.func },                                        -- function declarations
     ["@function.builtin"]      = { fg = c.constant, gui = conf.style.builtin_functions },    -- built-in functions
-    ["@function.call"]         = { fg = c.func },                                        -- function calls
+    ["@function.call"]         = { fg = c.number },                                      -- function calls should be yellow like numbers
     ["@function.macro"]        = syntax["Macro"],                                        -- macro-defined functions
-    ["@function.method"]       = { fg = c.func },                                        -- methods
-    ["@function.method.call"]  = { fg = c.func },                                        -- method calls
+    ["@function.method"]       = { fg = c.func },                                        -- method declarations
+    ["@function.method.call"]  = { fg = c.number },                                      -- method calls should be yellow like numbers
     ["@keyword"]               = { fg = c.keyword, gui = conf.style.keywords },          -- general keywords
     ["@keyword.conditional"]   = { fg = c.keyword, gui = conf.style.conditionals },      -- conditional keywords
     ["@keyword.exception"]     = syntax["Exception"],                                    -- exception-related keywords
@@ -59,7 +59,7 @@ M.get_colors = function(conf)
     ["@number.float"]          = syntax["Float"],                                        -- floats
     ["@operator"]              = { fg = c.operator },                                     -- operators like `+` and `=>`
     ["@property"]              = { fg = c.declaration },                                 -- object keys should be purple
-    ["@property.function"]     = { fg = c.func },                                          -- object method properties should be orange
+    ["@property.function"]     = { fg = c.func },                                        -- object method properties should be orange
     ["@punctuation.bracket"]   = { fg = c.fg },                                          -- brackets and parentheses
     ["@punctuation.delimiter"] = { fg = c.fg },                                          -- delimiters, like `; . , `
     ["@punctuation.special"]    = { fg = c.fg },                                          -- spread operator should be white
@@ -76,15 +76,15 @@ M.get_colors = function(conf)
     ["@type"]                  = { fg = c.func },                                          -- types should be orange
     ["@type.builtin"]          = { fg = c.func },                                          -- built-in types
     ["@type.qualifier"]        = { fg = c.func },                                          -- type qualifiers
-    ["@method"]                = { fg = c.func },                                          -- method calls
-    ["@method.call"]           = { fg = c.func },                                          -- method calls
+    ["@method"]                = { fg = c.func },                                          -- method declarations
+    ["@method.call"]           = { fg = c.number },                                        -- method calls should be yellow like numbers
     ["@variable"]              = { fg = c.usage },                                         -- regular variables (let)
     ["@variable.builtin"]      = { fg = c.usage },                                         -- built-in variables
     ["@variable.parameter"]    = { fg = c.fg },                                            -- parameters should be white
     ["@variable.declaration"]  = { fg = c.declaration },                                   -- const declarations should be purple
-    ["@function"]             = { fg = c.func },                                          -- function calls
+    ["@function"]             = { fg = c.func },                                          -- function declarations
     ["@function.builtin"]      = { fg = c.func },                                          -- built-in functions
-    ["@function.call"]        = { fg = c.func },                                          -- function calls
+    ["@function.call"]        = { fg = c.number },                                        -- function calls should be yellow like numbers
     ["@parameter"]             = { fg = c.fg },                                            -- parameters should be white
     ["@parameter.definition"]  = { fg = c.fg },                                            -- parameters in function definitions should be white
 

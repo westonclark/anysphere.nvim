@@ -134,7 +134,7 @@ local DEFAULT_SETTINGS = {
     parameter = "#D8DEE9",  -- White for parameters
     bracket = "#e394dc",  -- Pink for brackets
     ---@type string
-    visual = "#404040cc",  -- Matches editor.selectionBackground with higher opacity
+    visual = "#303030",  -- Solid color for visual selection, slightly lighter than background
     ---@type string
     error = "#BF616A",  -- Red for errors
     ---@type string

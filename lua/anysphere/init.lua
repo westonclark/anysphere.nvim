@@ -1,29 +1,36 @@
-local internal_conf = require("anysphere.config.internal")
 local M = {}
+local palette = require("anysphere.palette")
 
----@param user_opts? AnysphereColorscheme.Config
-M.setup = function(user_opts)
-  if user_opts then internal_conf.set(user_opts) end
-end
+---@param opts? table Optional configuration options
+function M.setup(opts)
+  opts = opts or {}
 
--- SHOULD BE CALLED AFTER SETUP (unless using default colors)
-M.get_palette = function()
-  local palette = {}
-  for name, color in pairs(internal_conf.current.colors) do
-    palette[name] = color
+  -- Apply any user color overrides
+  if opts.colors then
+    palette = vim.tbl_extend("force", palette, opts.colors)
   end
-  return palette
+
+  -- Load core highlights
+  require("anysphere.highlights.editor").setup(palette)
+  require("anysphere.highlights.syntax").setup(palette)
+  require("anysphere.highlights.treesitter").setup(palette)
+
+  -- Load plugin highlights conditionally
+  if package.loaded["gitsigns"] then
+    require("anysphere.highlights.plugins.gitsigns").setup(palette)
+  end
+
+  if package.loaded["telescope"] then
+    require("anysphere.highlights.plugins.telescope").setup(palette)
+  end
+
+  -- Always load LSP highlights since they're built-in
+  require("anysphere.highlights.plugins.lsp").setup(palette)
 end
 
---- Under the hood, |:colorscheme| is just using |:highlight GroupName ...| over every highlight group it knows about.
---- so this function is the equivalent to calling |:colorscheme| so use that instead
-M._colorscheme = function()
-  vim.cmd("highlight clear")
-  if vim.fn.has("syntax_on") then vim.cmd("syntax reset") end
-  vim.g.colors_name = "anysphere"
-
-  require("anysphere.highlights").set_highlights()
-  require("anysphere.terminal").set_highlights()
+-- Export palette for users who want to access colors
+function M.get_palette()
+  return palette
 end
 
 return M

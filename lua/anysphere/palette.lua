@@ -6,7 +6,7 @@ local palette = {
   -- UI colors
   line = "#292929",         -- Current line highlight
   visual = "#303030",       -- Visual selection
-  search = "#88C0D066",     -- Search highlight
+  search = "#3A5A6B",       -- Search highlight (blended with background)
   float_border = "#2A2A2A", -- Floating window borders
   comment = "#6C6C6C",      -- Comments
 

@@ -22,7 +22,7 @@ local palette = {
 
   -- Variable colors
   declaration = "#AA9BF5", -- Dark purple for declarations
-  usage = "#94C1FA",       -- Light blue for variable usage
+  usage = "#D8DEE9",       -- White for variable usage (same as fg)
   parameter = "#D8DEE9",   -- White for parameters
   property = "#D8DEE9",    -- White for properties
   constant = "#82d2ce",    -- Cyan for constants

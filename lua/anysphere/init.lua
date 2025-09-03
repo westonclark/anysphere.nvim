@@ -10,9 +10,12 @@ function M.setup(opts)
     palette = vim.tbl_extend("force", palette, opts.colors)
   end
 
-  -- Load core highlights
+  -- Load core highlights in correct order
+  -- Editor UI first (base layer)
   require("anysphere.highlights.editor").setup(palette)
+  -- Syntax highlighting (fallback for older vim syntax)
   require("anysphere.highlights.syntax").setup(palette)
+  -- Treesitter (modern syntax highlighting - should override syntax)
   require("anysphere.highlights.treesitter").setup(palette)
 
   -- Load plugin highlights conditionally

@@ -46,6 +46,16 @@ function M.setup(palette)
     Delimiter = { fg = palette.bracket },
     SpecialComment = { fg = palette.comment, italic = true },
     Debug = { fg = palette.error },
+    
+    -- HTML/XML specific (fallback for older syntax highlighting)
+    htmlTag = { fg = palette.func },
+    htmlTagName = { fg = palette.func },
+    htmlArg = { fg = palette.attribute },
+    htmlEndTag = { fg = palette.func },
+    htmlString = { fg = palette.string },
+    xmlTag = { fg = palette.func },
+    xmlTagName = { fg = palette.func },
+    xmlAttrib = { fg = palette.attribute },
 
     -- Error
     Error = { fg = palette.error, bold = true },

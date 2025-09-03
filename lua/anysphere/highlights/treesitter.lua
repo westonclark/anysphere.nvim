@@ -93,6 +93,18 @@ function M.setup(palette)
     ["@tag"] = { fg = palette.func },
     ["@tag.attribute"] = { fg = palette.attribute },
     ["@tag.delimiter"] = { fg = palette.tag_delimiter },
+    ["@tag.builtin"] = { fg = palette.func },
+    
+    -- HTML specific
+    ["@tag.html"] = { fg = palette.func },
+    ["@tag.attribute.html"] = { fg = palette.attribute },
+    ["@tag.delimiter.html"] = { fg = palette.tag_delimiter },
+    ["@string.quoted.html"] = { fg = palette.string },
+    
+    -- CSS specific
+    ["@property.css"] = { fg = palette.property },
+    ["@string.css"] = { fg = palette.string },
+    ["@number.css"] = { fg = palette.number },
 
     -- Special
     ["@label"] = { fg = palette.keyword },
@@ -103,6 +115,12 @@ function M.setup(palette)
     ["@variable.parameter.bash"] = { fg = palette.parameter },
     ["@string.special.symbol.ruby"] = { fg = palette.constant },
     ["@field.yaml"] = { fg = palette.property },
+    
+    -- Additional common highlights
+    ["@none"] = {},
+    ["@conceal"] = { fg = palette.comment },
+    ["@spell"] = {},
+    ["@nospell"] = {},
 
     -- LSP Semantic tokens (fallback)
     ["@lsp.type.class"] = { fg = palette.type, bold = true },

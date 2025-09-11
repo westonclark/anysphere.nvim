@@ -3,10 +3,15 @@ local M = {}
 function M.setup(palette, opts)
   opts = opts or {}
 
-  -- Determine background colors based on transparency setting
-  local bg = opts.transparent and "NONE" or palette.bg
-  local line_bg = opts.transparent and "NONE" or palette.line
-  local float_bg = opts.transparent and "NONE" or palette.bg
+  -- Determine background colors based on transparency setting (matching old implementation)
+  local bg = opts.transparent and "none" or palette.bg
+  local line_bg = opts.transparent and "none" or palette.line
+  local float_bg = opts.transparent and "none" or palette.bg
+
+  -- Debug: Print transparency setting
+  if opts.transparent then
+    print("Anysphere: Transparency enabled, bg = " .. tostring(bg))
+  end
 
   local highlights = {
     -- Basic UI
@@ -15,7 +20,7 @@ function M.setup(palette, opts)
     FloatBorder = { fg = palette.float_border, bg = float_bg },
 
     -- Cursor and lines
-    Cursor = { fg = bg == "NONE" and palette.fg or palette.bg, bg = palette.fg },
+    Cursor = { fg = bg == "none" and palette.fg or palette.bg, bg = palette.fg },
     CursorLine = { bg = line_bg },
     CursorColumn = { bg = line_bg },
     LineNr = { fg = palette.comment, bg = bg },
@@ -43,7 +48,7 @@ function M.setup(palette, opts)
 
     -- Popup menu
     Pmenu = { fg = palette.fg, bg = line_bg },
-    PmenuSel = { fg = bg == "NONE" and palette.fg or palette.bg, bg = palette.func },
+    PmenuSel = { fg = bg == "none" and palette.fg or palette.bg, bg = palette.func },
     PmenuSbar = { bg = line_bg },
     PmenuThumb = { bg = palette.comment },
 

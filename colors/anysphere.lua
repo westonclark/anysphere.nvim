@@ -5,4 +5,4 @@ end
 
 vim.g.colors_name = "anysphere"
 
-require("anysphere").setup()
+require("anysphere").load()

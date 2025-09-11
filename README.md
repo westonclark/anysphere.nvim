@@ -43,16 +43,38 @@ Basic usage (no configuration needed):
 vim.cmd("colorscheme anysphere")
 ```
 
+With transparency enabled:
+
+```lua
+require("anysphere").setup({
+  transparent = true
+})
+vim.cmd("colorscheme anysphere")
+```
+
 With custom colors:
 
 ```lua
 require("anysphere").setup({
+  transparent = false,  -- Optional: disable transparency (default)
   colors = {
     bg = "#000000",      -- Override background
     fg = "#ffffff",      -- Override foreground
     string = "#ff69b4",  -- Override string color
     -- ... any palette color
   }
+})
+vim.cmd("colorscheme anysphere")
+```
+
+## Debugging
+
+To enable debug prints that show transparency settings:
+
+```lua
+vim.g.anysphere_debug = true
+require("anysphere").setup({
+  transparent = true
 })
 vim.cmd("colorscheme anysphere")
 ```

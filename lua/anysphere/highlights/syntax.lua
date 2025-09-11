@@ -28,7 +28,7 @@ function M.setup(palette)
 
     -- PreProcessor
     PreProc = { fg = palette.builtin },
-    Include = { fg = palette.builtin },
+    Include = { fg = palette.import },
     Define = { fg = palette.builtin },
     Macro = { fg = palette.builtin },
     PreCondit = { fg = palette.builtin },

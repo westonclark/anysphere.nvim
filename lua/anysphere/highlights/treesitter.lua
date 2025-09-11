@@ -31,8 +31,8 @@ function M.setup(palette)
     ["@keyword.return"] = { fg = palette.keyword, italic = true },
     ["@keyword.conditional"] = { fg = palette.keyword },
     ["@keyword.repeat"] = { fg = palette.keyword },
-    ["@keyword.import"] = { fg = palette.builtin },
-    ["@keyword.export"] = { fg = palette.builtin },
+    ["@keyword.import"] = { fg = palette.import },
+    ["@keyword.export"] = { fg = palette.import },
 
     -- Variables
     ["@variable"] = { fg = palette.usage },
@@ -117,6 +117,12 @@ function M.setup(palette)
     ["@string.special.symbol.ruby"] = { fg = palette.constant },
     ["@field.yaml"] = { fg = palette.property },
 
+    -- Import-specific highlights
+    ["@variable.import"] = { fg = palette.import },
+    ["@function.import"] = { fg = palette.import },
+    ["@type.import"] = { fg = palette.import },
+    ["@property.import"] = { fg = palette.import },
+    
     -- Additional common highlights
     ["@none"] = {},
     ["@conceal"] = { fg = palette.comment },

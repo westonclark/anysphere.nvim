@@ -18,6 +18,7 @@ local palette = {
   keyword = "#83d6c5",   -- Green for keywords
   type = "#efb080",      -- Orange for types
   class = "#87c3ff",     -- Light blue for classes
+  import = "#83d6c5",    -- Teal/cyan for imports (matching Cursor)
   operator = "#efb080",  -- Orange for operators
   bracket = "#e394dc",   -- Pink for brackets
 

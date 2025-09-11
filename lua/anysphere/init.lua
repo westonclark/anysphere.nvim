@@ -25,47 +25,44 @@ function M.setup(opts)
   end
 end
 
+-- Helper function to merge highlight groups
+local function merge_highlights(target, source)
+  for name, setting in pairs(source) do
+    target[name] = setting
+  end
+end
+
 -- Function to collect all highlights
 local function collect_highlights()
   local highlights = {}
 
-  -- Collect editor highlights
-  local editor_highlights = require("anysphere.highlights.editor").get_highlights(palette, config)
-  for name, setting in pairs(editor_highlights) do
-    highlights[name] = setting
+  -- Define highlight modules to load
+  local highlight_modules = {
+    { path = "anysphere.highlights.editor", config_aware = true },
+    { path = "anysphere.highlights.syntax", config_aware = false },
+    { path = "anysphere.highlights.treesitter", config_aware = false },
+    { path = "anysphere.highlights.plugins.lsp", config_aware = false },
+  }
+
+  -- Conditional plugin modules
+  local plugin_modules = {
+    { plugin = "gitsigns", path = "anysphere.highlights.plugins.gitsigns" },
+    { plugin = "telescope", path = "anysphere.highlights.plugins.telescope" },
+  }
+
+  -- Load core highlight modules
+  for _, module in ipairs(highlight_modules) do
+    local highlight_fn = require(module.path).get_highlights
+    local module_highlights = module.config_aware and highlight_fn(palette, config) or highlight_fn(palette)
+    merge_highlights(highlights, module_highlights)
   end
 
-  -- Collect syntax highlights
-  local syntax_highlights = require("anysphere.highlights.syntax").get_highlights(palette)
-  for name, setting in pairs(syntax_highlights) do
-    highlights[name] = setting
-  end
-
-  -- Collect treesitter highlights (should override syntax)
-  local treesitter_highlights = require("anysphere.highlights.treesitter").get_highlights(palette)
-  for name, setting in pairs(treesitter_highlights) do
-    highlights[name] = setting
-  end
-
-  -- Collect plugin highlights conditionally
-  if package.loaded["gitsigns"] then
-    local gitsigns_highlights = require("anysphere.highlights.plugins.gitsigns").get_highlights(palette)
-    for name, setting in pairs(gitsigns_highlights) do
-      highlights[name] = setting
+  -- Load plugin modules conditionally
+  for _, plugin_module in ipairs(plugin_modules) do
+    if package.loaded[plugin_module.plugin] then
+      local plugin_highlights = require(plugin_module.path).get_highlights(palette)
+      merge_highlights(highlights, plugin_highlights)
     end
-  end
-
-  if package.loaded["telescope"] then
-    local telescope_highlights = require("anysphere.highlights.plugins.telescope").get_highlights(palette)
-    for name, setting in pairs(telescope_highlights) do
-      highlights[name] = setting
-    end
-  end
-
-  -- Always load LSP highlights since they're built-in
-  local lsp_highlights = require("anysphere.highlights.plugins.lsp").get_highlights(palette)
-  for name, setting in pairs(lsp_highlights) do
-    highlights[name] = setting
   end
 
   return highlights
@@ -92,15 +89,43 @@ local function apply_transparency()
   if config.transparent then
     -- Clear background colors for key UI elements
     local transparent_groups = {
+      -- Core UI
       "Normal",
       "NonText",
       "LineNr",
+      "CursorLineNr",
       "SignColumn",
       "EndOfBuffer",
+      "SpecialKey",
+
+      -- Floating windows
       "NormalFloat",
       "FloatBorder",
+
+      -- Window bars and status
       "WinBar",
-      "WinBarNC"
+      "WinBarNC",
+      "StatusLine",
+      "StatusLineNC",
+
+      -- Tabs
+      "TabLine",
+      "TabLineFill",
+
+      -- Folds
+      "FoldColumn",
+
+      -- Popups
+      "Pmenu",
+      "PmenuSbar",
+
+      -- Plugin-specific (if loaded)
+      "TelescopeNormal",
+      "TelescopeBorder",
+      "TelescopePreviewNormal",
+      "TelescopePreviewBorder",
+      "TelescopeResultsNormal",
+      "TelescopeResultsBorder",
     }
 
     for _, group in ipairs(transparent_groups) do

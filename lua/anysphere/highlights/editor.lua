@@ -79,9 +79,7 @@ function M.get_highlights(palette, opts)
     PmenuSbar = { bg = line_bg },
     PmenuThumb = { bg = palette.visual },
 
-    -- Make sure floating windows respect transparency
-    NormalFloat = { fg = palette.fg, bg = float_bg },
-    FloatBorder = { fg = palette.float_border, bg = float_bg },
+    -- Additional floating window elements (NormalFloat defined above)
 
     -- Misc
     Title = { fg = palette.func, gui = "bold" },

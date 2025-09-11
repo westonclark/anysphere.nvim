@@ -14,14 +14,17 @@ local palette = {
   string = "#e394dc",    -- Pink for strings
   number = "#ebc88d",    -- Yellow for numbers
   boolean = "#82d2ce",   -- Cyan for booleans
-  func = "#efb080",      -- Orange for functions
+  orange = "#efb080",    -- Orange (used for functions, types, operators)
   keyword = "#83d6c5",   -- Green for keywords
-  type = "#efb080",      -- Orange for types
   class = "#87c3ff",     -- Light blue for classes
   import = "#83d6c5",    -- Teal/cyan for imports (matching Cursor)
-  operator = "#efb080",  -- Orange for operators
   comparison = "#d6d6dd", -- White for comparison operators (===, !==, etc.)
   bracket = "#e394dc",   -- Pink for brackets
+
+  -- Semantic aliases for the orange color
+  func = "#efb080",      -- Orange for functions
+  type = "#efb080",      -- Orange for types
+  operator = "#efb080",  -- Orange for operators
 
   -- Variable colors
   declaration = "#AA9BF5", -- Dark purple for declarations

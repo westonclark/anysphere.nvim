@@ -8,11 +8,6 @@ function M.setup(palette, opts)
   local line_bg = opts.transparent and "none" or palette.line
   local float_bg = opts.transparent and "none" or palette.bg
 
-  -- Debug: Print transparency setting
-  if opts.transparent then
-    print("Anysphere: Transparency enabled, bg = " .. tostring(bg))
-  end
-
   local highlights = {
     -- Basic UI
     Normal = { fg = palette.fg, bg = bg },
@@ -20,11 +15,11 @@ function M.setup(palette, opts)
     FloatBorder = { fg = palette.float_border, bg = float_bg },
 
     -- Cursor and lines
-    Cursor = { fg = bg == "none" and palette.fg or palette.bg, bg = palette.fg },
+    Cursor = { gui = "reverse" },
     CursorLine = { bg = line_bg },
     CursorColumn = { bg = line_bg },
     LineNr = { fg = palette.comment, bg = bg },
-    CursorLineNr = { fg = palette.fg, bold = true, bg = line_bg },
+    CursorLineNr = { fg = palette.fg, bg = line_bg },
 
     -- Visual selection
     Visual = { bg = palette.visual },
@@ -47,10 +42,10 @@ function M.setup(palette, opts)
     TabLineSel = { fg = palette.fg, bg = bg },
 
     -- Popup menu
-    Pmenu = { fg = palette.fg, bg = line_bg },
-    PmenuSel = { fg = bg == "none" and palette.fg or palette.bg, bg = palette.func },
-    PmenuSbar = { bg = line_bg },
-    PmenuThumb = { bg = palette.comment },
+    Pmenu = { fg = palette.fg, bg = palette.bg },
+    PmenuSel = { fg = palette.constant, bg = palette.line },
+    PmenuSbar = { fg = palette.visual, bg = palette.comment },
+    PmenuThumb = { fg = palette.comment, bg = palette.visual },
 
     -- Splits
     VertSplit = { fg = palette.float_border },
@@ -64,42 +59,51 @@ function M.setup(palette, opts)
     SignColumn = { fg = palette.comment, bg = bg },
 
     -- Messages
-    ErrorMsg = { fg = palette.error },
-    WarningMsg = { fg = palette.warning },
-    MoreMsg = { fg = palette.hint },
-    Question = { fg = palette.hint },
+    ErrorMsg = { fg = palette.error, gui = "bold" },
+    WarningMsg = { fg = palette.warning, gui = "bold" },
+    MoreMsg = { fg = palette.func, gui = "bold" },
+    Question = { fg = palette.constant },
 
     -- Spelling
-    SpellBad = { sp = palette.error, undercurl = true },
-    SpellCap = { sp = palette.warning, undercurl = true },
-    SpellLocal = { sp = palette.hint, undercurl = true },
-    SpellRare = { sp = palette.hint, undercurl = true },
+    SpellBad = { gui = "undercurl" },
+    SpellCap = { gui = "undercurl" },
+    SpellLocal = { gui = "undercurl" },
+    SpellRare = { gui = "undercurl" },
 
     -- Diff
     DiffAdd = { bg = palette.git_add, fg = palette.bg },
     DiffChange = { bg = palette.git_change, fg = palette.bg },
     DiffDelete = { bg = palette.git_delete, fg = palette.bg },
-    DiffText = { bg = palette.git_change, fg = palette.bg, bold = true },
+    DiffText = { bg = palette.git_change, fg = palette.bg, gui = "bold" },
 
     -- Directory
     Directory = { fg = palette.type },
 
     -- Misc
-    Title = { fg = palette.func, bold = true },
-    Bold = { bold = true },
-    Italic = { italic = true },
-    Underlined = { underline = true },
+    Title = { fg = palette.func, gui = "bold" },
+    Bold = { gui = "bold" },
+    Italic = { gui = "italic" },
+    Underlined = { gui = "underline" },
     Ignore = { fg = palette.comment },
-    Todo = { fg = palette.warning, bold = true },
-    MatchParen = { fg = palette.func, bold = true },
+    Todo = { fg = palette.warning, gui = "bold" },
+    MatchParen = { fg = palette.fg, bg = palette.visual },
     NonText = { fg = palette.comment },
     SpecialKey = { fg = palette.comment },
     EndOfBuffer = { fg = palette.comment },
     Conceal = { fg = palette.comment },
   }
 
-  for name, opts in pairs(highlights) do
-    vim.api.nvim_set_hl(0, name, opts)
+  for name, setting in pairs(highlights) do
+    vim.api.nvim_command(
+      string.format(
+        "highlight %s guifg=%s guibg=%s guisp=%s gui=%s",
+        name,
+        setting.fg or "none",
+        setting.bg or "none",
+        setting.sp or "none",
+        setting.gui or "none"
+      )
+    )
   end
 end
 

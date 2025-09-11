@@ -22,7 +22,7 @@ function M.setup(palette)
     Conditional = { fg = palette.keyword },
     Repeat = { fg = palette.keyword },
     Label = { fg = palette.keyword },
-    Operator = { fg = palette.operator },
+    Operator = { fg = palette.comparison }, -- Changed to use comparison color for operators
     Keyword = { fg = palette.keyword },
     Exception = { fg = palette.keyword },
 

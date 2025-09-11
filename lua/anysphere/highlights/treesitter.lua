@@ -59,6 +59,9 @@ function M.setup(palette)
 
     -- Operators
     ["@operator"] = { fg = palette.operator },
+    ["@operator.comparison"] = { fg = palette.comparison },
+    ["@operator.equality"] = { fg = palette.comparison },
+    ["@operator.relational"] = { fg = palette.comparison },
 
     -- Punctuation
     ["@punctuation.delimiter"] = { fg = palette.bracket },
@@ -122,7 +125,7 @@ function M.setup(palette)
     ["@function.import"] = { fg = palette.import },
     ["@type.import"] = { fg = palette.import },
     ["@property.import"] = { fg = palette.import },
-    
+
     -- Additional common highlights
     ["@none"] = {},
     ["@conceal"] = { fg = palette.comment },

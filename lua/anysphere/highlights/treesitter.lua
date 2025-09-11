@@ -26,7 +26,8 @@ function M.setup(palette)
     -- Keywords
     ["@keyword"] = { fg = palette.keyword },
     ["@keyword.function"] = { fg = palette.keyword },
-    ["@keyword.operator"] = { fg = palette.operator },
+    ["@keyword.operator"] = { fg = palette.keyword }, -- Changed from operator to keyword color
+    ["@keyword.operator.new"] = { fg = palette.keyword }, -- Specific rule for 'new' keyword
     ["@keyword.return"] = { fg = palette.keyword, italic = true },
     ["@keyword.conditional"] = { fg = palette.keyword },
     ["@keyword.repeat"] = { fg = palette.keyword },

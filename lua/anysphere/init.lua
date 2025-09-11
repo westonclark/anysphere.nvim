@@ -4,6 +4,9 @@ local palette = require("anysphere.palette")
 ---@param opts? table Optional configuration options
 function M.setup(opts)
   opts = opts or {}
+  -- Save opts so the colorscheme loader can reuse them
+  M._opts = opts
+  vim.g.anysphere_opts = opts
 
   -- Apply any user color overrides
   if opts.colors then

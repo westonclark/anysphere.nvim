@@ -79,6 +79,12 @@ function M.get_highlights(palette, opts)
     -- Directory
     Directory = { fg = palette.type },
 
+     -- Popup menu
+    Pmenu = { fg = palette.fg, bg = float_bg },
+    PmenuSel = { fg = palette.constant, bg = line_bg },
+    PmenuSbar = { bg = line_bg },
+    PmenuThumb = { bg = palette.visual },
+
     -- Misc
     Title = { fg = palette.func, gui = "bold" },
     Bold = { gui = "bold" },

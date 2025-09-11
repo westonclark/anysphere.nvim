@@ -35,8 +35,8 @@ function M.setup(palette)
 
     -- Types
     Type = { fg = palette.type, bold = true },
-    StorageClass = { fg = palette.type },
-    Structure = { fg = palette.type },
+    StorageClass = { fg = palette.class },
+    Structure = { fg = palette.class },
     Typedef = { fg = palette.type },
 
     -- Special
@@ -46,7 +46,7 @@ function M.setup(palette)
     Delimiter = { fg = palette.bracket },
     SpecialComment = { fg = palette.comment, italic = true },
     Debug = { fg = palette.error },
-    
+
     -- HTML/XML specific (fallback for older syntax highlighting)
     htmlTag = { fg = palette.func },
     htmlTagName = { fg = palette.func },

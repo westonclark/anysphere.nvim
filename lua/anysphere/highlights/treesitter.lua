@@ -21,7 +21,7 @@ function M.setup(palette)
     ["@function.macro"] = { fg = palette.builtin },
     ["@method"] = { fg = palette.func },
     ["@method.call"] = { fg = palette.func },
-    ["@constructor"] = { fg = palette.func },
+    ["@constructor"] = { fg = palette.class },
 
     -- Keywords
     ["@keyword"] = { fg = palette.keyword },
@@ -94,13 +94,13 @@ function M.setup(palette)
     ["@tag.attribute"] = { fg = palette.attribute },
     ["@tag.delimiter"] = { fg = palette.tag_delimiter },
     ["@tag.builtin"] = { fg = palette.func },
-    
+
     -- HTML specific
     ["@tag.html"] = { fg = palette.func },
     ["@tag.attribute.html"] = { fg = palette.attribute },
     ["@tag.delimiter.html"] = { fg = palette.tag_delimiter },
     ["@string.quoted.html"] = { fg = palette.string },
-    
+
     -- CSS specific
     ["@property.css"] = { fg = palette.property },
     ["@string.css"] = { fg = palette.string },
@@ -115,7 +115,7 @@ function M.setup(palette)
     ["@variable.parameter.bash"] = { fg = palette.parameter },
     ["@string.special.symbol.ruby"] = { fg = palette.constant },
     ["@field.yaml"] = { fg = palette.property },
-    
+
     -- Additional common highlights
     ["@none"] = {},
     ["@conceal"] = { fg = palette.comment },
@@ -123,7 +123,7 @@ function M.setup(palette)
     ["@nospell"] = {},
 
     -- LSP Semantic tokens (fallback)
-    ["@lsp.type.class"] = { fg = palette.type, bold = true },
+    ["@lsp.type.class"] = { fg = palette.class, bold = true },
     ["@lsp.type.decorator"] = { fg = palette.attribute },
     ["@lsp.type.enum"] = { fg = palette.type },
     ["@lsp.type.enumMember"] = { fg = palette.constant },

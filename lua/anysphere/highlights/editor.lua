@@ -41,12 +41,6 @@ function M.get_highlights(palette, opts)
     TabLineFill = { bg = line_bg },
     TabLineSel = { fg = palette.fg, bg = bg },
 
-    -- Popup menu
-    Pmenu = { fg = palette.fg, bg = palette.bg },
-    PmenuSel = { fg = palette.constant, bg = palette.line },
-    PmenuSbar = { fg = palette.visual, bg = palette.comment },
-    PmenuThumb = { fg = palette.comment, bg = palette.visual },
-
     -- Splits
     VertSplit = { fg = palette.float_border },
     WinSeparator = { fg = palette.float_border },
@@ -84,6 +78,10 @@ function M.get_highlights(palette, opts)
     PmenuSel = { fg = palette.constant, bg = line_bg },
     PmenuSbar = { bg = line_bg },
     PmenuThumb = { bg = palette.visual },
+
+    -- Make sure floating windows respect transparency
+    NormalFloat = { fg = palette.fg, bg = float_bg },
+    FloatBorder = { fg = palette.float_border, bg = float_bg },
 
     -- Misc
     Title = { fg = palette.func, gui = "bold" },

@@ -16,13 +16,13 @@ local palette = {
   boolean = "#82d2ce",   -- Cyan for booleans
   func = "#efb080",      -- Orange for functions
   keyword = "#83d6c5",   -- Green for keywords
-  type = "#87c3ff",      -- Blue for types
+  type = "#efb080",      -- Orange for types
   operator = "#efb080",  -- Orange for operators
   bracket = "#e394dc",   -- Pink for brackets
 
   -- Variable colors
   declaration = "#AA9BF5", -- Dark purple for declarations
-  usage = "#D8DEE9",       -- White for variable usage (same as fg)
+  usage = "#AA9BF5",       -- Purple for variable usage
   parameter = "#D8DEE9",   -- White for parameters
   property = "#D8DEE9",    -- White for properties
   constant = "#82d2ce",    -- Cyan for constants

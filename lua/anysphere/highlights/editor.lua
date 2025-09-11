@@ -1,6 +1,6 @@
 local M = {}
 
-function M.setup(palette, opts)
+function M.get_highlights(palette, opts)
   opts = opts or {}
 
   -- Determine background colors based on transparency setting (matching old implementation)
@@ -93,18 +93,7 @@ function M.setup(palette, opts)
     Conceal = { fg = palette.comment },
   }
 
-  for name, setting in pairs(highlights) do
-    vim.api.nvim_command(
-      string.format(
-        "highlight %s guifg=%s guibg=%s guisp=%s gui=%s",
-        name,
-        setting.fg or "none",
-        setting.bg or "none",
-        setting.sp or "none",
-        setting.gui or "none"
-      )
-    )
-  end
+  return highlights
 end
 
 return M

@@ -1,6 +1,6 @@
 local M = {}
 
-function M.setup(palette)
+function M.get_highlights(palette)
 	local highlights = {
 		-- Git signs in the sign column
 		GitSignsAdd = { fg = palette.git_add },
@@ -29,9 +29,7 @@ function M.setup(palette)
 		GitSignsDeleteNr = { fg = palette.git_delete },
 	}
 
-	for name, opts in pairs(highlights) do
-		vim.api.nvim_set_hl(0, name, opts)
-	end
+  return highlights
 end
 
 return M

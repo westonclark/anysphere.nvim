@@ -1,16 +1,16 @@
 local M = {}
 
-function M.setup(palette)
+function M.get_highlights(palette)
   local highlights = {
     -- Literals
-    ["@string"] = { fg = palette.string, italic = true },
-    ["@string.documentation"] = { fg = palette.string, italic = true },
+    ["@string"] = { fg = palette.string, gui = "italic" },
+    ["@string.documentation"] = { fg = palette.string, gui = "italic" },
     ["@string.regex"] = { fg = palette.string },
     ["@string.escape"] = { fg = palette.func },
     ["@string.special"] = { fg = palette.func },
     ["@character"] = { fg = palette.string },
     ["@character.special"] = { fg = palette.func },
-    ["@boolean"] = { fg = palette.boolean, bold = true },
+    ["@boolean"] = { fg = palette.boolean, gui = "bold" },
     ["@number"] = { fg = palette.number },
     ["@float"] = { fg = palette.number },
 
@@ -28,7 +28,7 @@ function M.setup(palette)
     ["@keyword.function"] = { fg = palette.keyword },
     ["@keyword.operator"] = { fg = palette.keyword }, -- Changed from operator to keyword color
     ["@keyword.operator.new"] = { fg = palette.keyword }, -- Specific rule for 'new' keyword
-    ["@keyword.return"] = { fg = palette.keyword, italic = true },
+    ["@keyword.return"] = { fg = palette.keyword, gui = "italic" },
     ["@keyword.conditional"] = { fg = palette.keyword },
     ["@keyword.repeat"] = { fg = palette.keyword },
     ["@keyword.import"] = { fg = palette.import },
@@ -150,9 +150,7 @@ function M.setup(palette)
     ["@lsp.type.variable"] = { fg = palette.usage },
   }
 
-  for name, opts in pairs(highlights) do
-    vim.api.nvim_set_hl(0, name, opts)
-  end
+  return highlights
 end
 
 return M

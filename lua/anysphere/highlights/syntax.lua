@@ -1,16 +1,16 @@
 local M = {}
 
-function M.setup(palette)
+function M.get_highlights(palette)
   local highlights = {
     -- Comments
-    Comment = { fg = palette.comment, italic = true },
+    Comment = { fg = palette.comment, gui = "italic" },
 
     -- Constants
     Constant = { fg = palette.constant },
-    String = { fg = palette.string, italic = true },
+    String = { fg = palette.string, gui = "italic" },
     Character = { fg = palette.string },
     Number = { fg = palette.number },
-    Boolean = { fg = palette.boolean, bold = true },
+    Boolean = { fg = palette.boolean, gui = "bold" },
     Float = { fg = palette.number },
 
     -- Identifiers
@@ -34,7 +34,7 @@ function M.setup(palette)
     PreCondit = { fg = palette.builtin },
 
     -- Types
-    Type = { fg = palette.type, bold = true },
+    Type = { fg = palette.type, gui = "bold" },
     StorageClass = { fg = palette.class },
     Structure = { fg = palette.class },
     Typedef = { fg = palette.type },
@@ -58,12 +58,10 @@ function M.setup(palette)
     xmlAttrib = { fg = palette.attribute },
 
     -- Error
-    Error = { fg = palette.error, bold = true },
+    Error = { fg = palette.error, gui = "bold" },
   }
 
-  for name, opts in pairs(highlights) do
-    vim.api.nvim_set_hl(0, name, opts)
-  end
+  return highlights
 end
 
 return M

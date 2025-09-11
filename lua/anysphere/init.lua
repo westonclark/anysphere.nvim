@@ -10,25 +10,61 @@ function M.setup(opts)
     palette = vim.tbl_extend("force", palette, opts.colors)
   end
 
-  -- Load core highlights in correct order
-  -- Editor UI first (base layer)
-  require("anysphere.highlights.editor").setup(palette, opts)
-  -- Syntax highlighting (fallback for older vim syntax)
-  require("anysphere.highlights.syntax").setup(palette)
-  -- Treesitter (modern syntax highlighting - should override syntax)
-  require("anysphere.highlights.treesitter").setup(palette)
+  -- Collect all highlights first (like vague.nvim approach)
+  local highlights = {}
 
-  -- Load plugin highlights conditionally
+  -- Collect editor highlights
+  local editor_highlights = require("anysphere.highlights.editor").get_highlights(palette, opts)
+  for name, setting in pairs(editor_highlights) do
+    highlights[name] = setting
+  end
+
+  -- Collect syntax highlights
+  local syntax_highlights = require("anysphere.highlights.syntax").get_highlights(palette)
+  for name, setting in pairs(syntax_highlights) do
+    highlights[name] = setting
+  end
+
+  -- Collect treesitter highlights (should override syntax)
+  local treesitter_highlights = require("anysphere.highlights.treesitter").get_highlights(palette)
+  for name, setting in pairs(treesitter_highlights) do
+    highlights[name] = setting
+  end
+
+  -- Collect plugin highlights conditionally
   if package.loaded["gitsigns"] then
-    require("anysphere.highlights.plugins.gitsigns").setup(palette)
+    local gitsigns_highlights = require("anysphere.highlights.plugins.gitsigns").get_highlights(palette)
+    for name, setting in pairs(gitsigns_highlights) do
+      highlights[name] = setting
+    end
   end
 
   if package.loaded["telescope"] then
-    require("anysphere.highlights.plugins.telescope").setup(palette)
+    local telescope_highlights = require("anysphere.highlights.plugins.telescope").get_highlights(palette)
+    for name, setting in pairs(telescope_highlights) do
+      highlights[name] = setting
+    end
   end
 
   -- Always load LSP highlights since they're built-in
-  require("anysphere.highlights.plugins.lsp").setup(palette)
+  local lsp_highlights = require("anysphere.highlights.plugins.lsp").get_highlights(palette)
+  for name, setting in pairs(lsp_highlights) do
+    highlights[name] = setting
+  end
+
+  -- Apply all highlights at once (like vague.nvim)
+  for name, setting in pairs(highlights) do
+    vim.api.nvim_command(
+      string.format(
+        "highlight %s guifg=%s guibg=%s guisp=%s gui=%s",
+        name,
+        setting.fg or "none",
+        setting.bg or "none",
+        setting.sp or "none",
+        setting.gui or "none"
+      )
+    )
+  end
 end
 
 -- Export palette for users who want to access colors

@@ -1,6 +1,6 @@
 local M = {}
 
-function M.setup(palette)
+function M.get_highlights(palette)
   local highlights = {
     -- Telescope
     TelescopeNormal = { fg = palette.fg, bg = palette.bg },
@@ -27,9 +27,7 @@ function M.setup(palette)
     TelescopeResultsBorder = { fg = palette.float_border, bg = palette.bg },
   }
 
-  for name, opts in pairs(highlights) do
-    vim.api.nvim_set_hl(0, name, opts)
-  end
+  return highlights
 end
 
 return M

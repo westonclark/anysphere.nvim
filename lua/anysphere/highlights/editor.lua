@@ -1,18 +1,25 @@
 local M = {}
 
-function M.setup(palette)
+function M.setup(palette, opts)
+  opts = opts or {}
+
+  -- Determine background colors based on transparency setting
+  local bg = opts.transparent and "NONE" or palette.bg
+  local line_bg = opts.transparent and "NONE" or palette.line
+  local float_bg = opts.transparent and "NONE" or palette.bg
+
   local highlights = {
     -- Basic UI
-    Normal = { fg = palette.fg, bg = palette.bg },
-    NormalFloat = { fg = palette.fg, bg = palette.bg },
-    FloatBorder = { fg = palette.float_border, bg = palette.bg },
+    Normal = { fg = palette.fg, bg = bg },
+    NormalFloat = { fg = palette.fg, bg = float_bg },
+    FloatBorder = { fg = palette.float_border, bg = float_bg },
 
     -- Cursor and lines
-    Cursor = { fg = palette.bg, bg = palette.fg },
-    CursorLine = { bg = palette.line },
-    CursorColumn = { bg = palette.line },
-    LineNr = { fg = palette.comment },
-    CursorLineNr = { fg = palette.fg, bold = true },
+    Cursor = { fg = bg == "NONE" and palette.fg or palette.bg, bg = palette.fg },
+    CursorLine = { bg = line_bg },
+    CursorColumn = { bg = line_bg },
+    LineNr = { fg = palette.comment, bg = bg },
+    CursorLineNr = { fg = palette.fg, bold = true, bg = line_bg },
 
     -- Visual selection
     Visual = { bg = palette.visual },
@@ -24,20 +31,20 @@ function M.setup(palette)
     CurSearch = { bg = palette.search },
 
     -- Status and command line
-    StatusLine = { fg = palette.fg, bg = palette.line },
-    StatusLineNC = { fg = palette.comment, bg = palette.line },
-    WinBar = { fg = palette.fg, bg = palette.bg },
-    WinBarNC = { fg = palette.comment, bg = palette.bg },
+    StatusLine = { fg = palette.fg, bg = line_bg },
+    StatusLineNC = { fg = palette.comment, bg = line_bg },
+    WinBar = { fg = palette.fg, bg = bg },
+    WinBarNC = { fg = palette.comment, bg = bg },
 
     -- Tabs
-    TabLine = { fg = palette.comment, bg = palette.line },
-    TabLineFill = { bg = palette.line },
-    TabLineSel = { fg = palette.fg, bg = palette.bg },
+    TabLine = { fg = palette.comment, bg = line_bg },
+    TabLineFill = { bg = line_bg },
+    TabLineSel = { fg = palette.fg, bg = bg },
 
     -- Popup menu
-    Pmenu = { fg = palette.fg, bg = palette.line },
-    PmenuSel = { fg = palette.bg, bg = palette.func },
-    PmenuSbar = { bg = palette.line },
+    Pmenu = { fg = palette.fg, bg = line_bg },
+    PmenuSel = { fg = bg == "NONE" and palette.fg or palette.bg, bg = palette.func },
+    PmenuSbar = { bg = line_bg },
     PmenuThumb = { bg = palette.comment },
 
     -- Splits
@@ -45,11 +52,11 @@ function M.setup(palette)
     WinSeparator = { fg = palette.float_border },
 
     -- Folds
-    Folded = { fg = palette.comment, bg = palette.line },
-    FoldColumn = { fg = palette.comment, bg = palette.bg },
+    Folded = { fg = palette.comment, bg = line_bg },
+    FoldColumn = { fg = palette.comment, bg = bg },
 
     -- Signs
-    SignColumn = { fg = palette.comment, bg = palette.bg },
+    SignColumn = { fg = palette.comment, bg = bg },
 
     -- Messages
     ErrorMsg = { fg = palette.error },

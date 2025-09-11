@@ -12,7 +12,7 @@ function M.setup(opts)
 
   -- Load core highlights in correct order
   -- Editor UI first (base layer)
-  require("anysphere.highlights.editor").setup(palette)
+  require("anysphere.highlights.editor").setup(palette, opts)
   -- Syntax highlighting (fallback for older vim syntax)
   require("anysphere.highlights.syntax").setup(palette)
   -- Treesitter (modern syntax highlighting - should override syntax)

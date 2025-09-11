@@ -57,12 +57,15 @@ function M.setup(opts)
 
   -- Apply all highlights at once (like vague.nvim)
   for name, setting in pairs(highlights) do
+    -- Handle transparency by forcing bg to "none" when transparent is enabled
+    local bg = (opts.transparent and setting.bg) and "none" or (setting.bg or "none")
+
     vim.api.nvim_command(
       string.format(
         "highlight %s guifg=%s guibg=%s guisp=%s gui=%s",
         name,
         setting.fg or "none",
-        setting.bg or "none",
+        bg,
         setting.sp or "none",
         setting.gui or "none"
       )

@@ -8,6 +8,9 @@ function M.setup(opts)
   M._opts = opts
   vim.g.anysphere_opts = opts
 
+  -- Debug print
+  print("Transparency setting:", opts.transparent)
+
   -- Apply any user color overrides
   if opts.colors then
     palette = vim.tbl_extend("force", palette, opts.colors)
@@ -55,21 +58,27 @@ function M.setup(opts)
     highlights[name] = setting
   end
 
-  -- Apply all highlights at once (like vague.nvim)
+  -- Apply all highlights at once
   for name, setting in pairs(highlights) do
-    -- Handle transparency by forcing bg to "none" when transparent is enabled
-    local bg = (opts.transparent and setting.bg) and "none" or (setting.bg or "none")
-
     vim.api.nvim_command(
       string.format(
         "highlight %s guifg=%s guibg=%s guisp=%s gui=%s",
         name,
         setting.fg or "none",
-        bg,
+        setting.bg or "none",
         setting.sp or "none",
         setting.gui or "none"
       )
     )
+  end
+
+  -- If transparency is enabled, clear background colors
+  if opts.transparent then
+    vim.api.nvim_command("highlight Normal guibg=none")
+    vim.api.nvim_command("highlight NonText guibg=none")
+    vim.api.nvim_command("highlight LineNr guibg=none")
+    vim.api.nvim_command("highlight SignColumn guibg=none")
+    vim.api.nvim_command("highlight EndOfBuffer guibg=none")
   end
 end
 

@@ -2,13 +2,15 @@ local M = {}
 local palette = require("anysphere.palette")
 
 ---@param opts? table Optional configuration options
--- Store options globally
-local options = {}
+-- Store options globally in a place that persists between reloads
+local function get_options()
+  return vim.g.anysphere_options or {}
+end
 
 function M.setup(opts)
   opts = opts or {}
-  -- Save opts so they persist between setup() and colorscheme loading
-  options = opts
+  -- Store options in a vim global variable so they persist
+  vim.g.anysphere_options = opts
   -- Debug print
   print("Setup called with transparency:", opts.transparent)
 
@@ -90,8 +92,8 @@ end
 
 -- Function to load the colorscheme
 function M.load()
-  -- Use stored options or empty table if setup() wasn't called
-  local opts = options
+  -- Get stored options from vim global
+  local opts = get_options()
   print("Loading colorscheme with transparency:", opts.transparent)
 
   -- Collect all highlights first (like vague.nvim approach)

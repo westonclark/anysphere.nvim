@@ -21,14 +21,14 @@ function M.get_highlights(palette, opts)
     LineNr = { fg = palette.comment, bg = bg },
     CursorLineNr = { fg = palette.fg, bg = line_bg },
 
-    -- Visual selection
-    Visual = { bg = opts.transparent and "none" or palette.visual },
-    VisualNOS = { bg = opts.transparent and "none" or palette.visual },
+    -- Visual selection (always visible, even with transparency)
+    Visual = { bg = palette.visual },
+    VisualNOS = { bg = palette.visual },
 
-    -- Search
-    Search = { bg = opts.transparent and "none" or palette.search },
-    IncSearch = { bg = opts.transparent and "none" or palette.search },
-    CurSearch = { bg = opts.transparent and "none" or palette.search },
+    -- Search (always visible, even with transparency)
+    Search = { bg = palette.search },
+    IncSearch = { bg = palette.search },
+    CurSearch = { bg = palette.search },
 
     -- Status and command line
     StatusLine = { fg = palette.fg, bg = line_bg },
@@ -64,11 +64,11 @@ function M.get_highlights(palette, opts)
     SpellLocal = { gui = "undercurl" },
     SpellRare = { gui = "undercurl" },
 
-    -- Diff
-    DiffAdd = { bg = opts.transparent and "none" or palette.git_add, fg = palette.bg },
-    DiffChange = { bg = opts.transparent and "none" or palette.git_change, fg = palette.bg },
-    DiffDelete = { bg = opts.transparent and "none" or palette.git_delete, fg = palette.bg },
-    DiffText = { bg = opts.transparent and "none" or palette.git_change, fg = palette.bg, gui = "bold" },
+    -- Diff (keep visible even with transparency for better usability)
+    DiffAdd = { bg = palette.git_add, fg = palette.bg },
+    DiffChange = { bg = palette.git_change, fg = palette.bg },
+    DiffDelete = { bg = palette.git_delete, fg = palette.bg },
+    DiffText = { bg = palette.git_change, fg = palette.bg, gui = "bold" },
 
     -- Directory
     Directory = { fg = palette.type },
